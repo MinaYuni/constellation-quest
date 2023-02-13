@@ -10,11 +10,11 @@ public class GameData : MonoBehaviour {
     };
 
     public List<string> level1 = new List<string>(){
-        "Equuleus", "Aries", "Cassiopeia", "Little Dipper", "Big Dipper"
+        "Equuleus", "Aries", "Cassiopeia", "LittleDipper", "BigDipper"
     };
 
     public List<string> level2 = new List<string>(){
-        "Libra", "Cancer", "Leo", "Serpens Caput", "Cygnus", "Canis Major"
+        "Libra", "Cancer", "Leo", "SerpensCaput", "Cygnus", "CanisMajor"
     };
 
     public List<string> level3 = new List<string>(){
@@ -31,12 +31,28 @@ public class GameData : MonoBehaviour {
 
     public Dictionary<string, bool> ConstLearnt = new Dictionary<string, bool>();
 
+    // ConstLearnt.Add("Aries", false);
+
     public void initConstLearnt(List<string> level){
         foreach (var item in level){
-
             ConstLearnt.Add(item, false);
         }
     }
+
+    void Start()
+    {
+        initConstLearnt(level1);
+        initConstLearnt(level2);
+        initConstLearnt(level3);
+        initConstLearnt(level4);
+        initConstLearnt(level5);
+    }
+
+    // initConstLearnt(level1);
+    // initConstLearnt(level2);
+    // initConstLearnt(level3);
+    // initConstLearnt(level4);
+    // initConstLearnt(level5);
 
 
     // private string[] level1 = {"Equuleus", "Aries", "Cassiopeia", "Little Dipper", "Big Dipper"};
