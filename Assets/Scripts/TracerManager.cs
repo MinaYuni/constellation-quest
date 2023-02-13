@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
+using TMPro;
 
 public class TracerManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class TracerManager : MonoBehaviour
     public GameData gameData;
     public Transform constellation; // la constellation 
     public GameObject menuFin; // menu de fin 
+    public TMP_Text nomConstellation;
+    public TMP_Text textMenuFin;
 
     List<Transform> listObjectLinks = new List<Transform>(); // liste des liens qui composent la constellation 
     bool allLinksDisplayed = false; // si toutes les liens sont visibles �a veut dire que la constellation est finie 
@@ -27,6 +30,8 @@ public class TracerManager : MonoBehaviour
                 listObjectLinks.Add(child);
             }
         }
+
+        nomConstellation.GetComponent<TextMeshProUGUI>().text = constellation.name; 
     }
 
     // Update is called once per frame
@@ -36,9 +41,9 @@ public class TracerManager : MonoBehaviour
 
         if (allLinksDisplayed)
         {
-            System.Threading.Thread.Sleep(1000);
+            System.Threading.Thread.Sleep(500);
             menuFin.SetActive(true);
-            //Debug.Log("Constellation fini");
+            textMenuFin.GetComponent<TextMeshProUGUI>().text = "Bravo !\nVous avez réussi à tracer la constellation " + constellation.name + " !!!";
         }
     }
 
