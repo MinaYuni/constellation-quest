@@ -6,9 +6,11 @@ using Debug = UnityEngine.Debug;
 
 public class TracerManager : MonoBehaviour
 {
-    public Transform constellation; // la cosntellation 
+
+    public GameData gameData;
+    public Transform constellation; // la constellation 
     List<Transform> listObjectLinks = new List<Transform>(); // liste des liens qui composent la constellation 
-    bool allLinksDisplayed = false; // si toutes les liens sont visibles ça veut dire que la constellation est finie 
+    bool allLinksDisplayed = false; // si toutes les liens sont visibles ï¿½a veut dire que la constellation est finie 
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +49,7 @@ public class TracerManager : MonoBehaviour
 
         if (cpt == listObjectLinks.Count)
         {
+            gameData.ConstLearnt[constellation.name] = true;
             return true;
         }
 

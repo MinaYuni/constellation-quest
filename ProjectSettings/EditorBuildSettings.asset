@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Map.unity
     guid: 195f4bf342ffc874ebb1058a95541a58
+  - enabled: 1
+    path: Assets/Scenes/ApprentissageScene.unity
+    guid: 91e3f0a533d884bde86eeaef40564fc4
   m_configObjects: {}
