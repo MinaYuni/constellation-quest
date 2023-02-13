@@ -135,7 +135,6 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\Unity.VisualScripting.Flow.dll
 --root-assembly=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\Unity.Mathematics.dll
 --root-assembly=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\Unity.Services.Core.Telemetry.dll
---root-assembly=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\Unity.VisualScripting.State.dll
 --root-assembly=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\Unity.VisualScripting.Core.dll
 --root-assembly=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\Unity.Services.Core.Environments.Internal.dll
@@ -157,6 +156,7 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\Unity.Services.Core.Threading.dll
 --root-assembly=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\Unity.2D.Tilemap.Extras.dll
 --root-assembly=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\Unity.Services.Core.Networking.dll
+--root-assembly=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\Unity.InternalAPIEngineBridge.001.dll
 --root-assembly=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\Unity.Services.Core.Configuration.dll
 --assembly-folder=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\
@@ -302,7 +302,6 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\Unity.VisualScripting.Flow.dll
 --root-assembly=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\Unity.Mathematics.dll
 --root-assembly=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\Unity.Services.Core.Telemetry.dll
---root-assembly=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\Unity.VisualScripting.State.dll
 --root-assembly=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\Unity.VisualScripting.Core.dll
 --root-assembly=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\Unity.Services.Core.Environments.Internal.dll
@@ -324,6 +323,7 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\Unity.Services.Core.Threading.dll
 --root-assembly=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\Unity.2D.Tilemap.Extras.dll
 --root-assembly=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\Unity.Services.Core.Networking.dll
+--root-assembly=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\Unity.InternalAPIEngineBridge.001.dll
 --root-assembly=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\Unity.Services.Core.Configuration.dll
 --assembly-folder=C:\Users\zloui\OneDrive\Bureau\M2\EVHI\Constellation_Quest\Temp\StagingArea\Data\Managed\
