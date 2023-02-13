@@ -57,10 +57,32 @@ public class TracerManager : MonoBehaviour
         if (cpt == listObjectLinks.Count)
         {
             gameData.ConstLearnt[constellation.name] = true;
-            Debug.Log(constellation.name + " " + gameData.ConstLearnt[constellation.name]);
+            // Debug.Log(constellation.name + " " + gameData.ConstLearnt[constellation.name]);
+            unlockNextLevel();
+            
             return true;
         }
 
         return false;
     }
+
+        public void unlockNextLevel(){
+            int currLevel = gameData.currLevel;
+            bool unlock = true;
+
+            List<string> levelToCheck = gameData.levels[currLevel];
+
+            foreach(var v in levelToCheck){
+                if(!gameData.ConstLearnt[v]){
+                    unlock = false;
+                    break;
+                }
+            }
+
+            if(unlock){
+                gameData.levelsUnlocked["Level"+ currLevel+2] = true;
+                gameData.currLevel ++;
+            }
+        }
+
 }

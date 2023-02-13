@@ -5,33 +5,42 @@ using UnityEngine;
 public class GameData : MonoBehaviour {
 
    
-    public List<bool> levelsUnlocked = new List<bool>(){
-        true, false, false, false, false
+    // public List<bool> levelsUnlocked = new List<bool>(){
+    //     true, false, false, false, false
+    // };
+
+    public Dictionary<string, bool> levelsUnlocked = new Dictionary<string, bool>(){
+        {"Level1", true},
+        {"Level2", false},
+        {"Level3", false},
+        {"Level4", false},
+        {"Level5", false}
+
     };
+
+    public List<List<string>> levels = new List<List<string>>();
 
     public List<string> level1 = new List<string>(){
         "Equuleus", "Aries", "Cassiopeia", "LittleDipper", "BigDipper"
     };
-
     public List<string> level2 = new List<string>(){
         "Libra", "Cancer", "Leo", "SerpensCaput", "Cygnus", "CanisMajor"
     };
-
     public List<string> level3 = new List<string>(){
         "Capricorn", "Perseus", "Taurus", "Scorpio", "Pisces"
     };
-
     public List<string> level4 = new List<string>(){
         "Aquarius", "Sagittarius", "Draco", "Andromeda", "Gemini"
     };
-
     public List<string> level5 = new List<string>(){
         "Pavo", "Virgo", "Phoenix", "Orion"
     };
 
-    public Dictionary<string, bool> ConstLearnt = new Dictionary<string, bool>();
 
-    // ConstLearnt.Add("Aries", false);
+    public int currLevel = 0;
+    // public List<string> lastLevelUnlocked = level1;
+
+    public Dictionary<string, bool> ConstLearnt = new Dictionary<string, bool>();
 
     public void initConstLearnt(List<string> level){
         foreach (var item in level){
@@ -46,6 +55,12 @@ public class GameData : MonoBehaviour {
         initConstLearnt(level3);
         initConstLearnt(level4);
         initConstLearnt(level5);
+
+        levels.Add(level1);
+        levels.Add(level2);
+        levels.Add(level3);
+        levels.Add(level4);
+        levels.Add(level5);
     }
 
     // initConstLearnt(level1);
