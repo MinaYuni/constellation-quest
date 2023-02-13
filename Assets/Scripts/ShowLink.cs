@@ -17,7 +17,10 @@ public class ShowLink : MonoBehaviour
     List<Transform> linkedStars = new List<Transform>(); // liste des étoiles qui a été liées 
     Transform selectedStar1; // première étoile sélectionnée
     Transform selectedStar2; // deuxième étoile sélectionnée
-    
+    Color colorStarSelected = Color.red; 
+    Color colorStarLinked = Color.yellow;
+    Color colorHelpLinks = new Color(1, 1, 1, 0.5f);
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,17 +49,20 @@ public class ShowLink : MonoBehaviour
     {
         selectStars();
 
+        activateHelpLinks();
+
         if (selectedStar1 != null && selectedStar2 != null)
         {
             activateLink();
         }
+
     }
 
     void selectStars()
     {
         foreach (Transform star in listObjectStars)
         {
-            if (star.GetComponent<SpriteRenderer>().color == Color.yellow)
+            if (star.GetComponent<SpriteRenderer>().color == colorStarSelected)
             {
                 if (selectedStar1 == null && selectedStar2 == null)
                 {
@@ -78,7 +84,7 @@ public class ShowLink : MonoBehaviour
                 }
             }
 
-            else if (star.GetComponent<SpriteRenderer>().color == Color.white)
+            else if (star.GetComponent<SpriteRenderer>().color == Color.white || star.GetComponent<SpriteRenderer>().color == colorStarLinked)
             {
                 if (selectedStar1 != null && selectedStar2 != null)
                 {
@@ -131,15 +137,62 @@ public class ShowLink : MonoBehaviour
             if ((selectedStar1.name == link.Item2 && selectedStar2.name == link.Item3) || (selectedStar1.name == link.Item3 && selectedStar2.name == link.Item2))
             {
                 //Debug.Log("link : " + link.Item1.name);
+                link.Item1.GetComponent<SpriteRenderer>().color = colorStarLinked;
                 link.Item1.gameObject.SetActive(true);
 
-                selectedStar1.GetComponent<SpriteRenderer>().color = Color.red;
-                selectedStar2.GetComponent<SpriteRenderer>().color = Color.red;
+                selectedStar1.GetComponent<SpriteRenderer>().color = colorStarLinked;
+                selectedStar2.GetComponent<SpriteRenderer>().color = colorStarLinked;
+
+                foreach ((Transform, string, string) lien in listIdLinks)
+                {
+                    if ((selectedStar1.name == lien.Item2 || selectedStar2.name == lien.Item2) && lien.Item1.GetComponent<SpriteRenderer>().color == Color.white)
+                    {
+                        lien.Item1.gameObject.SetActive(false);
+                    }
+                }
 
                 selectedStar1 = null; 
                 selectedStar2 = null;
 
-                break;
+                break; 
+            }
+        }
+    }
+
+    void activateHelpLinks()
+    {
+        if (selectedStar1 != null && selectedStar2 == null)
+        {
+            foreach ((Transform, string, string) link in listIdLinks)
+            {
+                if ((selectedStar1.name == link.Item2 || selectedStar1.name == link.Item3) && link.Item1.gameObject.activeInHierarchy == false)
+                {
+                    link.Item1.GetComponent<SpriteRenderer>().color = colorHelpLinks; 
+                    link.Item1.gameObject.SetActive(true);
+                }
+            }
+        }
+
+        if (selectedStar1 == null && selectedStar2 != null)
+        {
+            foreach ((Transform, string, string) link in listIdLinks)
+            {
+                if ((selectedStar2.name == link.Item2 || selectedStar2.name == link.Item3) && link.Item1.gameObject.activeInHierarchy == false)
+                {
+                    link.Item1.GetComponent<SpriteRenderer>().color = colorHelpLinks;
+                    link.Item1.gameObject.SetActive(true);
+                }
+            }
+        }
+
+        if (selectedStar1 == null && selectedStar2 == null)
+        {
+            foreach ((Transform, string, string) link in listIdLinks)
+            {
+                if (link.Item1.gameObject.activeInHierarchy == true && link.Item1.GetComponent<SpriteRenderer>().color == colorHelpLinks)
+                {
+                    link.Item1.gameObject.SetActive(false);
+                }
             }
         }
     }
