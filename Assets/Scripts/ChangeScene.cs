@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
+    
     public void LoadScene(string sceneName)
     {
+        Debug.Log("Changed scene");
         SceneManager.LoadScene(sceneName);
         // GameObjectManager.LoadScene(sceneName);
     }
