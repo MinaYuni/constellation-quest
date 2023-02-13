@@ -15,8 +15,8 @@ public class ChangeColor : MonoBehaviour
     public float timeToWait = 1.0f;
     float timeLeft = 1000.0f;
 
-    Color colorStarSelected = Color.red; // rouge si sélectionné 
-    Color colorStarLinked = Color.yellow; // jaune si lié 
+    Color colorStarSelected = Color.red; // rouge si sÃ©lectionnÃ© 
+    Color colorStarLinked = Color.yellow; // jaune si liÃ© 
 
     void Start()
     {
@@ -35,12 +35,12 @@ public class ChangeColor : MonoBehaviour
         }
         if (timeLeft <= 0)
         {
-            if (circle.color != colorStarSelected) // rouge = étoile sélectionnée (si je n'ai pas déjà le cas)
+            if (circle.color != colorStarSelected) // rouge = Ã©toile sÃ©lectionnÃ©e (si je n'ai pas dÃ©jÃ  le cas)
             {
                 circle.color = colorStarSelected;
                 timeLeft = 1000.0f;
             }
-            else if (isLinked) // jaune = étoile liée 
+            else if (isLinked) // jaune = Ã©toile liÃ©e 
             {
                 circle.color = colorStarLinked;
                 timeLeft = 1000.0f;
