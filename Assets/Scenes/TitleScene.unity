@@ -2663,6 +2663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffbe52a6e05fc6561bb319ced2346fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabGameData: {fileID: 0}
   MainMenu: {fileID: 1129220874}
   LevelMenu: {fileID: 557812324}
 --- !u!4 &1076237549

@@ -1,0 +1,15 @@
+{
+  "map": [
+    {
+      "constellation": {
+        "etoiles": [
+            {
+              "posx": ...,
+              "posy": ...,
+              ...
+            }
+        ]
+      }
+    }
+  ]
+}
