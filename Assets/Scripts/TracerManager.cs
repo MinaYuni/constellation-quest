@@ -57,6 +57,7 @@ public class TracerManager : MonoBehaviour
         if (cpt == listObjectLinks.Count)
         {
             gameData.ConstLearnt[constellation.name] = true;
+            Debug.Log(constellation.name + " " + gameData.ConstLearnt[constellation.name]);
             return true;
         }
 

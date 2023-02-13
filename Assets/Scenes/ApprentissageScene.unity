@@ -441,6 +441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4883cf8a7e73c7c478b480fbc9c922ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameData: {fileID: -6406917020413523146, guid: 3bf7816c07b5e85408e5675a4a6802fe, type: 3}
   constellation: {fileID: 410044222}
   menuFin: {fileID: 544152056}
 --- !u!1 &479235078
