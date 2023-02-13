@@ -5,7 +5,7 @@ using System.IO;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 using Newtonsoft.Json;
-
+using System.Security.Cryptography;
 
 public class ShowLink : MonoBehaviour
 {
