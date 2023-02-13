@@ -11,8 +11,8 @@ public class TracerManager : MonoBehaviour
 
     List<Transform> listObjectLinks = new List<Transform>(); // liste des liens qui composent la constellation 
     bool allLinksDisplayed = false; // si toutes les liens sont visibles ça veut dire que la constellation est finie 
-    Color colorStarSelected = Color.red;
-    Color colorStarLinked = Color.yellow;
+    Color colorStarSelected = Color.red; // rouge si sélectionné 
+    Color colorStarLinked = Color.yellow; // jaune si lié 
 
 
     // Start is called before the first frame update

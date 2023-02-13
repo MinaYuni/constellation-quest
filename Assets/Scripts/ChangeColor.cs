@@ -8,12 +8,15 @@ using Debug = UnityEngine.Debug;
 public class ChangeColor : MonoBehaviour
 {
     public SpriteRenderer circle;
+
     bool isHovering = false;
     bool isLinked = false;
+
     public float timeToWait = 1.0f;
     float timeLeft = 1000.0f;
-    Color colorStarSelected = Color.red;
-    Color colorStarLinked = Color.yellow;
+
+    Color colorStarSelected = Color.red; // rouge si sélectionné 
+    Color colorStarLinked = Color.yellow; // jaune si lié 
 
     void Start()
     {

@@ -10,16 +10,19 @@ using System.Security.Cryptography;
 public class ShowLink : MonoBehaviour
 {
     public Transform constellation; // la cosntellation 
+
+    Color colorStarSelected = Color.red; // rouge si sélectionné 
+    Color colorStarLinked = Color.yellow; // jaune si lié 
+    Color colorHelpLinks = new Color(1, 1, 1, 0.5f); // lien grisé 
+
     List<Transform> listObjectStars = new List<Transform>(); // liste des étoiles qui composent la constellation 
     List<Transform> listObjectLinks = new List<Transform>(); // liste des liens qui composent la constellation 
     List<string> listIdStars = new List<string>(); // liste des noms des étoiles 
     List<(Transform, string, string)> listIdLinks = new List<(Transform, string, string)>(); // (nom lien, nom étoile avant, nom étoile après)  
     List<Transform> linkedStars = new List<Transform>(); // liste des étoiles qui a été liées 
+
     Transform selectedStar1; // première étoile sélectionnée
     Transform selectedStar2; // deuxième étoile sélectionnée
-    Color colorStarSelected = Color.red; 
-    Color colorStarLinked = Color.yellow;
-    Color colorHelpLinks = new Color(1, 1, 1, 0.5f);
 
     // Start is called before the first frame update
     void Start()
@@ -55,7 +58,6 @@ public class ShowLink : MonoBehaviour
         {
             activateLink();
         }
-
     }
 
     void selectStars()
