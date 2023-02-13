@@ -29,6 +29,16 @@ public class GameData : MonoBehaviour {
         "Pavo", "Virgo", "Phoenix", "Orion"
     };
 
+    public Dictionary<string, bool> ConstLearnt = new Dictionary<string, bool>();
+
+    public void initConstLearnt(List<string> level){
+        foreach (var item in level){
+
+            ConstLearnt.Add(item, false);
+        }
+    }
+
+
     // private string[] level1 = {"Equuleus", "Aries", "Cassiopeia", "Little Dipper", "Big Dipper"};
     // private string[] level2 = {"Libra", "Cancer", "Leo", "Serpens Caput", "Cygnus", "Canis Major"};
     // private string[] level3 = {"Capricorn", "Perseus", "Taurus", "Scorpio", "Pisces"};
