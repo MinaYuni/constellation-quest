@@ -20,12 +20,12 @@ public class MapSceneManager : MonoBehaviour
     }
 
     public void setStateMapMenu(bool b){
-        Debug.Log("in mapscenemanager called set map menu");
+        //Debug.Log("in mapscenemanager called set map menu");
         MapMenu.SetActive(b);
     }
 
     public void setStateLearnMenu(bool b){
-        Debug.Log("called set learn menu");
+        //Debug.Log("called set learn menu");
 
         LearnMenu.SetActive(b);
     }
@@ -36,13 +36,20 @@ public class MapSceneManager : MonoBehaviour
 
         // Transform[] allChildren = LearnMenu.GetComponentsInChildren<Transform>();
         foreach (Transform child in LearnMenu.transform){
-            Debug.Log(child.name);
+            //Debug.Log(child.name);
             if(child.name == constel.name || child.name == "NomConstellation"){
                 // Debug.Log("child name == constel name : " + child.name + " " + constel.name);
                 child.gameObject.SetActive(true);
-                foreach (Transform link in child){
-                    if (link.gameObject.tag == "Link"){
-                        link.gameObject.SetActive(false);
+
+                // reset la constellation 
+                foreach (Transform c in child){
+                    if (c.gameObject.tag == "Link"){
+                        c.GetComponent<LineRenderer>().material.color = Color.white;
+                        c.gameObject.SetActive(false);
+                    }
+                    if (c.gameObject.tag == "Star")
+                    {
+                        c.GetComponent<SpriteRenderer>().color = Color.white;
                     }
                 }
             }

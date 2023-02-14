@@ -39,7 +39,10 @@ public class linedrawer : MonoBehaviour
                 {
                     secondSelectedSprite = hit.collider.gameObject;
                     SelectedSpritesParent = secondSelectedSprite.transform.parent;
-                    CreateLink(Math.Min(firstSelectedSprite.transform.localScale.x, secondSelectedSprite.transform.localScale.x));
+                    string star1 = firstSelectedSprite.transform.name.Replace("Star", "");
+                    string star2 = secondSelectedSprite.transform.name.Replace("Star", "");
+                    string name = star1 + "-" + star2;
+                    CreateLink(Math.Min(firstSelectedSprite.transform.localScale.x, secondSelectedSprite.transform.localScale.x), name);
                     firstSelectedSprite = null;
                     secondSelectedSprite = null;
                 }
@@ -54,9 +57,10 @@ public class linedrawer : MonoBehaviour
         }
     }
 
-    private static void CreateLink(float size)
+    private static void CreateLink(float size, string number)
     {
-        GameObject go = new GameObject("Link");
+        GameObject go = new GameObject("Link" + number);
+        go.tag = "Link";
         go.transform.parent = SelectedSpritesParent;
         LineRenderer lineRenderer = go.AddComponent<LineRenderer>();
 

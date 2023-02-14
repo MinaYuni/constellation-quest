@@ -24,7 +24,6 @@ public class ShowLink : MonoBehaviour
     Transform selectedStar1; // première étoile sélectionnée
     Transform selectedStar2; // deuxième étoile sélectionnée
 
-    // Start is called before the first frame update
     void Start()
     {
         // récupérer toutes les étoiles et liens de la constellation 
@@ -43,11 +42,16 @@ public class ShowLink : MonoBehaviour
             }
         }
 
-        //Debug.Log(listIdStars.ToString());
-        //Debug.Log(listIdLinks.ToString()); 
+        //Debug.Log(listIdStars[0].ToString());
+        //Debug.Log(listIdLinks[0].ToString()); 
+        foreach ((Transform, string, string) link in listIdLinks)
+        {
+            Debug.Log("link1 : " + link.Item1.name);
+            Debug.Log("link2 : " + link.Item2);
+            Debug.Log("link3 : " + link.Item3);
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         selectStars();
@@ -116,8 +120,7 @@ public class ShowLink : MonoBehaviour
             }
         }
 
-        /*
-        if (selectedStar1 != null)
+        /*if (selectedStar1 != null)
         {
             Debug.Log("selectedStar1 : " + selectedStar1.name);
         }
@@ -127,19 +130,25 @@ public class ShowLink : MonoBehaviour
         }
         if (selectedStar1 == null && selectedStar2 == null)
         {
-            Debug.Log("aucune étoile sélectionnée");
-        }
-        */
+            //Debug.Log("aucune étoile sélectionnée");
+        }*/
     }
 
     void activateLink()
     {
         foreach ((Transform, string, string) link in listIdLinks)
         {
+            //Debug.Log("--------------");
+            //Debug.Log("selectedStar1 : " + selectedStar1.name);
+            //Debug.Log("selectedStar2 : " + selectedStar2.name);
+            //Debug.Log("link2 : " + link.Item2);
+            //Debug.Log("link3 : " + link.Item3);
+
             if ((selectedStar1.name == link.Item2 && selectedStar2.name == link.Item3) || (selectedStar1.name == link.Item3 && selectedStar2.name == link.Item2))
             {
-                //Debug.Log("link : " + link.Item1.name);
-                link.Item1.GetComponent<SpriteRenderer>().color = colorStarLinked;
+                Debug.Log("link : " + link.Item1.name);
+                //link.Item1.GetComponent<SpriteRenderer>().color = colorStarLinked;
+                changeLinkColor(link.Item1.GetComponent<LineRenderer>(), colorStarLinked, 1.0f);         
                 link.Item1.gameObject.SetActive(true);
 
                 selectedStar1.GetComponent<SpriteRenderer>().color = colorStarLinked;
@@ -147,7 +156,7 @@ public class ShowLink : MonoBehaviour
 
                 foreach ((Transform, string, string) lien in listIdLinks)
                 {
-                    if ((selectedStar1.name == lien.Item2 || selectedStar2.name == lien.Item2) && lien.Item1.GetComponent<SpriteRenderer>().color == Color.white)
+                    if ((selectedStar1.name == lien.Item2 || selectedStar2.name == lien.Item2) && lien.Item1.GetComponent<LineRenderer>().material.color == Color.white)
                     {
                         lien.Item1.gameObject.SetActive(false);
                     }
@@ -169,7 +178,8 @@ public class ShowLink : MonoBehaviour
             {
                 if ((selectedStar1.name == link.Item2 || selectedStar1.name == link.Item3) && link.Item1.gameObject.activeInHierarchy == false)
                 {
-                    link.Item1.GetComponent<SpriteRenderer>().color = colorHelpLinks; 
+                    //link.Item1.GetComponent<SpriteRenderer>().color = colorHelpLinks; 
+                    changeLinkColor(link.Item1.GetComponent<LineRenderer>(), colorHelpLinks, 0.5f);
                     link.Item1.gameObject.SetActive(true);
                 }
             }
@@ -181,7 +191,8 @@ public class ShowLink : MonoBehaviour
             {
                 if ((selectedStar2.name == link.Item2 || selectedStar2.name == link.Item3) && link.Item1.gameObject.activeInHierarchy == false)
                 {
-                    link.Item1.GetComponent<SpriteRenderer>().color = colorHelpLinks;
+                    //link.Item1.GetComponent<SpriteRenderer>().color = colorHelpLinks;
+                    changeLinkColor(link.Item1.GetComponent<LineRenderer>(), colorHelpLinks, 0.5f);
                     link.Item1.gameObject.SetActive(true);
                 }
             }
@@ -191,11 +202,34 @@ public class ShowLink : MonoBehaviour
         {
             foreach ((Transform, string, string) link in listIdLinks)
             {
-                if (link.Item1.gameObject.activeInHierarchy == true && link.Item1.GetComponent<SpriteRenderer>().color == colorHelpLinks)
+                if (link.Item1.gameObject.activeInHierarchy == true && link.Item1.GetComponent<LineRenderer>().material.color == colorHelpLinks)
                 {
                     link.Item1.gameObject.SetActive(false);
                 }
             }
         }
+    }
+
+    void changeLinkColor(LineRenderer link, Color couleur, float alpha)
+    {
+        var gradient = new Gradient();
+
+        gradient.mode = GradientMode.Blend;
+
+        var gradientColorKeys = new GradientColorKey[2]
+        {
+            new GradientColorKey(couleur, .5f),
+            new GradientColorKey(couleur, .5f)
+        };
+
+        var alphaKeys = new GradientAlphaKey[2]
+        {
+            new GradientAlphaKey(alpha, .5f),
+            new GradientAlphaKey(alpha, .5f)
+        };
+
+        gradient.SetKeys(gradientColorKeys, alphaKeys);
+
+        link.colorGradient = gradient;
     }
 }
