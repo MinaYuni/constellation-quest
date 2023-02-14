@@ -8,7 +8,7 @@ public class ChangeScene : MonoBehaviour
     
     public void LoadScene(string sceneName)
     {
-        Debug.Log("Changed scene");
+        Debug.Log("Changed scene to " + sceneName);
         SceneManager.LoadScene(sceneName);
         // GameObjectManager.LoadScene(sceneName);
     }
