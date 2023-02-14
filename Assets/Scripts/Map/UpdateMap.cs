@@ -23,19 +23,25 @@ public class UpdateMap : MonoBehaviour
         // Debug.Log("in update");
 
         foreach(var unlocked in gameData.levelsUnlocked){
-            setLevel(unlocked.Key, unlocked.Value);
+            // Debug.Log("in foreach in update");
             // Debug.Log($"{unlocked.Key}: {unlocked.Value}");
+
+            setLevel(unlocked.Key, unlocked.Value);
         }
         
     }
 
     public void setLevel(string levelToDisable, bool activate){
         GameObject level = GameObject.Find(levelToDisable);
+        if(level){
+            // Debug.Log(levelToDisable);
+            // Debug.Log(level.name);
 
-        // level.transform.Find();
-        Button[] buttons = level.transform.GetComponentsInChildren<Button>();
-        foreach(var i in buttons){
-            i.interactable = activate;
+            // level.transform.Find();
+            Button[] buttons = level.transform.GetComponentsInChildren<Button>();
+            foreach(var i in buttons){
+                i.interactable = activate;
+            }
         }
 
     }

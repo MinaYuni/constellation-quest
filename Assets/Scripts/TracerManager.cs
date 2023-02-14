@@ -53,7 +53,7 @@ public class TracerManager : MonoBehaviour
 
         foreach (Transform link in listObjectLinks)
         {
-            if (link.gameObject.activeInHierarchy == true && link.GetComponent<SpriteRenderer>().color == colorStarLinked)
+            if (link.gameObject.activeInHierarchy == true && link.GetComponent<LineRenderer>().startColor == colorStarLinked && link.GetComponent<LineRenderer>().endColor == colorStarLinked)
             {
                 cpt++;
             }
