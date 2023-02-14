@@ -64,7 +64,7 @@ public class linedrawer : MonoBehaviour
         go.transform.parent = SelectedSpritesParent;
         LineRenderer lineRenderer = go.AddComponent<LineRenderer>();
 
-        float gapSize = size;
+        float gapSize = size/100;
 
         Vector3 direction = (secondSelectedSprite.transform.position - firstSelectedSprite.transform.position).normalized;
 
@@ -75,9 +75,12 @@ public class linedrawer : MonoBehaviour
         lineRenderer.SetPosition(0, firstSpritePosition);
         lineRenderer.SetPosition(1, secondSpritePosition);
         
-        lineRenderer.startWidth = size/4;
-        lineRenderer.endWidth = size/4;
+        lineRenderer.startWidth = size/400;
+        lineRenderer.endWidth = size/400;
         
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
+
+        lineRenderer.useWorldSpace = false;
+
     }
 }
