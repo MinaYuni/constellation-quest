@@ -12,7 +12,7 @@ public class TracerManager : MonoBehaviour
     private GameData gameData;
     public Transform constellation; // la constellation 
     public GameObject menuFin; // menu de fin 
-    public TMP_Text nomConstellation;
+    //public TMP_Text nomConstellation;
     public TMP_Text textMenuFin;
 
     List<Transform> listObjectLinks = new List<Transform>(); // liste des liens qui composent la constellation 
@@ -41,7 +41,7 @@ public class TracerManager : MonoBehaviour
             }
         }
 
-        nomConstellation.GetComponent<TextMeshProUGUI>().text = constellation.name; 
+        //nomConstellation.GetComponent<TextMeshProUGUI>().text = constellation.name; 
     }
 
     // Update is called once per frame
