@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System.Diagnostics;
+using Debug = UnityEngine.Debug;
+using System.Security.Cryptography;
 
 public class MapSceneManager : MonoBehaviour
 {
     public GameObject MapMenu;
     public GameObject LearnMenu;
+    public GameObject menuFin;
     // public GameObject constellation;
 
     void Start()
@@ -45,24 +50,40 @@ public class MapSceneManager : MonoBehaviour
                 child.gameObject.SetActive(true);
 
                 // reset la constellation 
-                foreach (Transform c in child)
-                {
-                    if (c.gameObject.tag == "Link")
-                    {
-                        c.GetComponent<LineRenderer>().material.color = Color.white;
-                        c.gameObject.SetActive(false);
-                    }
-                    if (c.gameObject.tag == "Star")
-                    {
-                        c.GetComponent<SpriteRenderer>().color = Color.white;
-                    }
-                }
+                resetConstellation(child);
             }
             else
             {
                 child.gameObject.SetActive(false);
             }
             
+        }
+    }
+
+    public void refaireConst(TMP_Text nomConst)
+    {
+        Debug.Log("refaireConst");
+        Debug.Log(nomConst.text.ToString());
+
+        Transform child = LearnMenu.transform.Find(nomConst.text.ToString());
+        menuFin.SetActive(false);
+        resetConstellation(child);
+        child.gameObject.SetActive(true);
+    }
+
+    void resetConstellation(Transform child)
+    {
+        foreach (Transform c in child)
+        {
+            if (c.gameObject.tag == "Link")
+            {
+                c.GetComponent<LineRenderer>().material.color = Color.white;
+                c.gameObject.SetActive(false);
+            }
+            if (c.gameObject.tag == "Star")
+            {
+                c.GetComponent<SpriteRenderer>().color = Color.white;
+            }
         }
     }
 

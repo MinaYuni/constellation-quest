@@ -6297,6 +6297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapMenu: {fileID: 1981937795}
   LearnMenu: {fileID: 56094701}
+  menuFin: {fileID: 1269042285}
 --- !u!1 &981967213
 GameObject:
   m_ObjectHideFlags: 0
@@ -9018,8 +9019,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 780142565}
   m_HandleRect: {fileID: 780142564}
   m_Direction: 2
-  m_Value: -0.0000009192042
-  m_Size: 0.65124345
+  m_Value: -0.00000018384083
+  m_Size: 0.6518427
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9729,7 +9730,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -374, y: 332.0003}
+  m_AnchoredPosition: {x: -374, y: 332.00006}
   m_SizeDelta: {x: 742.4916, y: 953.5919}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1732072353
@@ -10072,7 +10073,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1763539133}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: refaireConst
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 640118529}
+          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1763539133
 MonoBehaviour:
   m_ObjectHideFlags: 0
