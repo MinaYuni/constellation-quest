@@ -1,94 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using System.Diagnostics;
-using Debug = UnityEngine.Debug;
-using System.Security.Cryptography;
 
 public class MapSceneManager : MonoBehaviour
 {
     public GameObject MapMenu;
     public GameObject LearnMenu;
-    public GameObject menuFin;
-    public TMP_Text nomConstellation;
     // public GameObject constellation;
-
+    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-
+    // Update is called once per frame
     void Update()
     {
         
     }
 
-    public void setStateMapMenu(bool b)
-    {
-        //Debug.Log("in mapscenemanager called set map menu");
+    public void setStateMapMenu(bool b){
+        Debug.Log("in mapscenemanager called set map menu");
         MapMenu.SetActive(b);
     }
 
-    public void setStateLearnMenu(bool b)
-    {
-        //Debug.Log("called set learn menu");
+    public void setStateLearnMenu(bool b){
+        Debug.Log("called set learn menu");
+
         LearnMenu.SetActive(b);
     }
 
     public void setStateLearn(GameObject constel){
-        //Debug.Log("learn menu set active?");
         LearnMenu.SetActive(true);
-        Debug.Log(constel.name);
+        // Debug.Log("learn menu set active?");
 
         // Transform[] allChildren = LearnMenu.GetComponentsInChildren<Transform>();
-
         foreach (Transform child in LearnMenu.transform){
-            // Debug.Log("child name == constel name : " + child.name + " " + constel.name);
-            if (child.name == constel.name)
-            {
+            Debug.Log(child.name);
+            if(child.name == constel.name || child.name == "NomConstellation" || child.name == "RetourMap"){
+                // Debug.Log("child name == constel name : " + child.name + " " + constel.name);
                 child.gameObject.SetActive(true);
+                foreach (Transform link in child){
+                    if (link.gameObject.tag == "Link"){
+                        link.gameObject.SetActive(false);
+                    }
+                    if (link.gameObject.tag == "Link"){
+                        link.gameObject.SetActive(false);
+                    }
 
-                resetConstellation(child);
+                }
             }
-            else if (child.name == "NomConstellation")
-            {
-                child.gameObject.SetActive(true);
-                nomConstellation.GetComponent<TextMeshProUGUI>().text = constel.name;
-            }
-            else
-            {
+            else{
                 child.gameObject.SetActive(false);
             }
             
-        }
-    }
-
-    public void refaireConst(TMP_Text nomConst)
-    {
-        Debug.Log("refaireConst");
-        Debug.Log(nomConst.text.ToString());
-
-        Transform child = LearnMenu.transform.Find(nomConst.text.ToString());
-        menuFin.SetActive(false);
-        resetConstellation(child);
-        child.gameObject.SetActive(true);
-    }
-
-    void resetConstellation(Transform child)
-    {
-        foreach (Transform c in child)
-        {
-            if (c.gameObject.tag == "Link")
-            {
-                c.GetComponent<LineRenderer>().material.color = Color.white;
-                c.gameObject.SetActive(false);
-            }
-            if (c.gameObject.tag == "Star")
-            {
-                c.GetComponent<SpriteRenderer>().color = Color.white;
-            }
         }
     }
 
