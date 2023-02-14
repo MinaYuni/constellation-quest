@@ -2553,7 +2553,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 162291442}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateMapMenu
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateLearn
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 162291439}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &162291442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2676,16 +2700,28 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 05574aeddf56f94f2b7332c7773c79bd, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: 
-        m_Mode: 5
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateMapMenu
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: TitleScene
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateLearn
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 179337638}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &179337641
@@ -2847,16 +2883,28 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 959919812}
-        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateMapMenu
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: TitleScene
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateLearn
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 185093140}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &185093143
@@ -3764,16 +3812,28 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 959919812}
-        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateMapMenu
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: TitleScene
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateLearn
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 248498214}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &248498217
@@ -5131,7 +5191,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 327524704}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateMapMenu
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateLearn
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 327524701}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &327524704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7609,7 +7693,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 504585337}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateMapMenu
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateLearn
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 504585334}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &504585337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9167,16 +9275,28 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 05574aeddf56f94f2b7332c7773c79bd, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: set_name
-        m_Mode: 5
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateMapMenu
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Tracing
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateLearn
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 631826102}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &631826105
@@ -11878,7 +11998,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 817467295}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateMapMenu
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateLearn
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 817467292}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &817467295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12483,7 +12627,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 860318392}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateMapMenu
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateLearn
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 860318389}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &860318392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14927,16 +15095,28 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 05574aeddf56f94f2b7332c7773c79bd, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: set_name
-        m_Mode: 5
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateMapMenu
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Tracing
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateLearn
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1041629396}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1041629399
@@ -17522,16 +17702,28 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 959919812}
-        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateMapMenu
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: TitleScene
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateLearn
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1262604025}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1262604028
@@ -18139,7 +18331,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1286231203}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateMapMenu
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateLearn
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1286231200}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1286231203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19896,16 +20112,28 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 05574aeddf56f94f2b7332c7773c79bd, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: 
-        m_Mode: 5
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateMapMenu
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: TitleScene
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateLearn
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1450613772}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1450613775
@@ -21766,16 +21994,28 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 05574aeddf56f94f2b7332c7773c79bd, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: set_name
-        m_Mode: 5
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateMapMenu
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Tracing
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateLearn
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1609255972}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1609255975
@@ -26820,16 +27060,28 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 05574aeddf56f94f2b7332c7773c79bd, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: 
-        m_Mode: 5
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateMapMenu
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: TitleScene
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 959919814}
+        m_TargetAssemblyTypeName: MapSceneManager, Assembly-CSharp
+        m_MethodName: setStateLearn
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1851183149}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1851183152
