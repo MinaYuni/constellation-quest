@@ -52,6 +52,7 @@ public class TracerManager : MonoBehaviour
         if (allLinksDisplayed)
         {
             System.Threading.Thread.Sleep(500);
+            constellation.gameObject.SetActive(false);
             menuFin.SetActive(true);
             textMenuFin.GetComponent<TextMeshProUGUI>().text = "Bravo !\nVous avez réussi à tracer la constellation " + constellation.name + " !!!";
         }

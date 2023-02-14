@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ApprentissageScene.unity
     guid: 91e3f0a533d884bde86eeaef40564fc4
+  - enabled: 1
+    path: Assets/Scenes/Challenge.unity
+    guid: d1254cface890bd4795086ead258308d
   m_configObjects: {}

@@ -45,15 +45,17 @@ public class MapSceneManager : MonoBehaviour
         // Transform[] allChildren = LearnMenu.GetComponentsInChildren<Transform>();
 
         foreach (Transform child in LearnMenu.transform){
-            //Debug.Log(child.name);
-            if(child.name == constel.name || child.name == "NomConstellation")
+            // Debug.Log("child name == constel name : " + child.name + " " + constel.name);
+            if (child.name == constel.name)
             {
-                // Debug.Log("child name == constel name : " + child.name + " " + constel.name);
+                child.gameObject.SetActive(true);
+
+                resetConstellation(child);
+            }
+            else if (child.name == "NomConstellation")
+            {
                 child.gameObject.SetActive(true);
                 nomConstellation.GetComponent<TextMeshProUGUI>().text = constel.name;
-
-                // reset la constellation 
-                resetConstellation(child);
             }
             else
             {
