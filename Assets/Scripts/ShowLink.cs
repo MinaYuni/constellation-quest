@@ -11,22 +11,22 @@ public class ShowLink : MonoBehaviour
 {
     public Transform constellation; // la cosntellation 
 
-    Color colorStarSelected = Color.red; // rouge si sélectionné 
-    Color colorStarLinked = Color.yellow; // jaune si lié 
-    Color colorHelpLinks = new Color(1, 1, 1, 0.5f); // lien grisé 
+    Color colorStarSelected = Color.red; // rouge si sï¿½lectionnï¿½ 
+    Color colorStarLinked = Color.yellow; // jaune si liï¿½ 
+    Color colorHelpLinks = new Color(1, 1, 1, 0.5f); // lien grisï¿½ 
 
-    List<Transform> listObjectStars = new List<Transform>(); // liste des étoiles qui composent la constellation 
+    List<Transform> listObjectStars = new List<Transform>(); // liste des ï¿½toiles qui composent la constellation 
     List<Transform> listObjectLinks = new List<Transform>(); // liste des liens qui composent la constellation 
-    List<string> listIdStars = new List<string>(); // liste des noms des étoiles 
-    List<(Transform, string, string)> listIdLinks = new List<(Transform, string, string)>(); // (nom lien, nom étoile avant, nom étoile après)  
-    List<Transform> linkedStars = new List<Transform>(); // liste des étoiles qui a été liées 
+    List<string> listIdStars = new List<string>(); // liste des noms des ï¿½toiles 
+    List<(Transform, string, string)> listIdLinks = new List<(Transform, string, string)>(); // (nom lien, nom ï¿½toile avant, nom ï¿½toile aprï¿½s)  
+    List<Transform> linkedStars = new List<Transform>(); // liste des ï¿½toiles qui a ï¿½tï¿½ liï¿½es 
 
-    Transform selectedStar1; // première étoile sélectionnée
-    Transform selectedStar2; // deuxième étoile sélectionnée
+    Transform selectedStar1; // premiï¿½re ï¿½toile sï¿½lectionnï¿½e
+    Transform selectedStar2; // deuxiï¿½me ï¿½toile sï¿½lectionnï¿½e
 
     void Start()
     {
-        // récupérer toutes les étoiles et liens de la constellation 
+        // rï¿½cupï¿½rer toutes les ï¿½toiles et liens de la constellation 
         foreach (Transform child in constellation)
         {
             if (child.gameObject.tag == "Star")
@@ -44,12 +44,12 @@ public class ShowLink : MonoBehaviour
 
         //Debug.Log(listIdStars[0].ToString());
         //Debug.Log(listIdLinks[0].ToString()); 
-        foreach ((Transform, string, string) link in listIdLinks)
-        {
-            Debug.Log("link1 : " + link.Item1.name);
-            Debug.Log("link2 : " + link.Item2);
-            Debug.Log("link3 : " + link.Item3);
-        }
+        // foreach ((Transform, string, string) link in listIdLinks)
+        // {
+        //     Debug.Log("link1 : " + link.Item1.name);
+        //     Debug.Log("link2 : " + link.Item2);
+        //     Debug.Log("link3 : " + link.Item3);
+        // }
     }
 
     void Update()
@@ -130,7 +130,7 @@ public class ShowLink : MonoBehaviour
         }
         if (selectedStar1 == null && selectedStar2 == null)
         {
-            //Debug.Log("aucune étoile sélectionnée");
+            //Debug.Log("aucune ï¿½toile sï¿½lectionnï¿½e");
         }*/
     }
 
