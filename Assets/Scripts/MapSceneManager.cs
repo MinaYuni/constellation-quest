@@ -11,6 +11,7 @@ public class MapSceneManager : MonoBehaviour
     public GameObject MapMenu;
     public GameObject LearnMenu;
     public GameObject menuFin;
+    public TMP_Text nomConstellation;
     // public GameObject constellation;
 
     void Start()
@@ -37,8 +38,9 @@ public class MapSceneManager : MonoBehaviour
     }
 
     public void setStateLearn(GameObject constel){
-        // Debug.Log("learn menu set active?");
+        //Debug.Log("learn menu set active?");
         LearnMenu.SetActive(true);
+        Debug.Log(constel.name);
 
         // Transform[] allChildren = LearnMenu.GetComponentsInChildren<Transform>();
 
@@ -48,6 +50,7 @@ public class MapSceneManager : MonoBehaviour
             {
                 // Debug.Log("child name == constel name : " + child.name + " " + constel.name);
                 child.gameObject.SetActive(true);
+                nomConstellation.GetComponent<TextMeshProUGUI>().text = constel.name;
 
                 // reset la constellation 
                 resetConstellation(child);
