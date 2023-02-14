@@ -36,8 +36,7 @@ public class GameData : MonoBehaviour {
         "Pavo", "Virgo", "Phoenix", "Orion"
     };
 
-
-    public int currLevel = 0;
+    public int currLevel;
     // public List<string> lastLevelUnlocked = level1;
 
     public Dictionary<string, bool> ConstLearnt = new Dictionary<string, bool>();
@@ -61,6 +60,13 @@ public class GameData : MonoBehaviour {
         levels.Add(level3);
         levels.Add(level4);
         levels.Add(level5);
+
+        currLevel = 0;
+
+        // Debug.Log("in gameData start levels foreach length");
+        // foreach(var v in levels){
+        //     Debug.Log(v.Count);
+        // }
     }
 
     // initConstLearnt(level1);

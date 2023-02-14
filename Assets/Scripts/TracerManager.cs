@@ -4,11 +4,12 @@ using System.Diagnostics;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TracerManager : MonoBehaviour
 {
 
-    public GameData gameData;
+    private GameData gameData;
     public Transform constellation; // la constellation 
     public GameObject menuFin; // menu de fin 
     public TMP_Text nomConstellation;
@@ -23,6 +24,15 @@ public class TracerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        GameObject gameDataGO = GameObject.Find("GameData");
+		if (gameDataGO == null)
+			SceneManager.LoadScene("TitleScene");
+		else
+		{
+			gameData = gameDataGO.GetComponent<GameData>();
+        }
+
         foreach (Transform child in constellation)
         {
             if (child.gameObject.tag == "Link")
@@ -53,7 +63,7 @@ public class TracerManager : MonoBehaviour
 
         foreach (Transform link in listObjectLinks)
         {
-            if (link.gameObject.activeInHierarchy == true && link.GetComponent<LineRenderer>().startColor == colorStarLinked && link.GetComponent<LineRenderer>().endColor == colorStarLinked)
+            if (link.gameObject.activeInHierarchy == true && link.GetComponent<SpriteRenderer>().color == colorStarLinked)
             {
                 cpt++;
             }
@@ -71,23 +81,28 @@ public class TracerManager : MonoBehaviour
         return false;
     }
 
-        public void unlockNextLevel(){
-            int currLevel = gameData.currLevel;
-            bool unlock = true;
+    public void unlockNextLevel(){
+        int curr = gameData.currLevel;
+        bool unlock = true;
 
-            List<string> levelToCheck = gameData.levels[currLevel];
+        // Debug.Log("curr : " +curr);
+        // Debug.Log("game data currLevel : " +gameData.currLevel);
+        // Debug.Log("gameData levels: " + gameData.levels);
+        // Debug.Log("gameData levels length: " + gameData.levels.Count);
 
-            foreach(var v in levelToCheck){
-                if(!gameData.ConstLearnt[v]){
-                    unlock = false;
-                    break;
-                }
-            }
+        List<string> levelToCheck = gameData.levels[curr];
 
-            if(unlock){
-                gameData.levelsUnlocked["Level"+ currLevel+2] = true;
-                gameData.currLevel ++;
+        foreach(var v in levelToCheck){
+            if(!gameData.ConstLearnt[v]){
+                unlock = false;
+                break;
             }
         }
+
+        if(unlock){
+            gameData.levelsUnlocked["Level"+ curr+2] = true;
+            gameData.currLevel ++;
+        }
+    }
 
 }
