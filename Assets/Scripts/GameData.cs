@@ -62,6 +62,8 @@ public class GameData : MonoBehaviour {
         levels.Add(level5);
 
         currLevel = 0;
+        ConstLearnt["Equuleus"] = true;
+        ConstLearnt["Cassiopeia"] = true;
 
         // Debug.Log("in gameData start levels foreach length");
         // foreach(var v in levels){
