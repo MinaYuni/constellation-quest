@@ -108,26 +108,4 @@ public class TracerManager : MonoBehaviour
         }
     }
 
-    void changeLinkColor(LineRenderer link, Color couleur, float alpha)
-    {
-        var gradient = new Gradient();
-
-        gradient.mode = GradientMode.Blend;
-
-        var gradientColorKeys = new GradientColorKey[2]
-        {
-            new GradientColorKey(couleur, .5f),
-            new GradientColorKey(couleur, .5f)
-        };
-
-        var alphaKeys = new GradientAlphaKey[2]
-        {
-            new GradientAlphaKey(alpha, .5f),
-            new GradientAlphaKey(alpha, .5f)
-        };
-
-        gradient.SetKeys(gradientColorKeys, alphaKeys);
-
-        link.colorGradient = gradient;
-    }
 }

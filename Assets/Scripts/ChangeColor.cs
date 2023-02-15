@@ -16,8 +16,8 @@ public class ChangeColor : MonoBehaviour
 {
     public SpriteRenderer starSprite;
     public Transform star;
-    public RectTransform canvas;
-    public GameObject gazePoint;
+    //public RectTransform canvas;
+    //public GameObject gazePoint;
 
     //public TMP_Text xGazeText;
     //public TMP_Text yGazeText;
@@ -35,7 +35,7 @@ public class ChangeColor : MonoBehaviour
     bool isHovering = false;
     bool isLinked = false;
 
-    public float timeToWait = 1.0f;
+    float timeToWait = 1.0f;
     float timeLeft = 1000.0f;
 
     Color colorStarSelected = Color.red; // rouge si sélectionné 
@@ -43,13 +43,13 @@ public class ChangeColor : MonoBehaviour
 
     void Start()
     {
-        (float, float) posStar = getPositionStar(star);
+        //(float, float) posStar = getPositionStar(star);
 
-        xStar = posStar.Item1;
-        yStar = posStar.Item2;
+        //xStar = posStar.Item1;
+        //yStar = posStar.Item2;
 
         //posStarText.text = "( " + xStar + " ; " + yStar + " )";
-        Debug.Log(star.name + " : ( " + xStar + " ; " + yStar + " )");
+        //Debug.Log(star.name + " : ( " + xStar + " ; " + yStar + " )");
 
         //_xOutline = xCoord.GetComponent<Outline>();
         //_yOutline = yCoord.GetComponent<Outline>();
@@ -57,7 +57,7 @@ public class ChangeColor : MonoBehaviour
 
     void Update()
     {
-        updateEyeTracking();
+        //updateEyeTracking();
 
         updateStarColor();
     }
@@ -117,6 +117,7 @@ public class ChangeColor : MonoBehaviour
         return (x - centerX) * (x - centerX) + (y - centerY) * (y - centerY) <= radius * radius;
     }
 
+    /*
     (float, float) getPositionStar(Transform star)
     {
         starSprite = GetComponent<SpriteRenderer>();
@@ -134,6 +135,7 @@ public class ChangeColor : MonoBehaviour
 
         return (xStarPosition, yStarPosition);
     }
+    
 
     void updateEyeTracking()
     {
@@ -160,5 +162,6 @@ public class ChangeColor : MonoBehaviour
             isHovering = false;
         }
     }
+    */
 }
 

@@ -22,19 +22,22 @@ public class ChallengeConst : MonoBehaviour
     public List<string> solved = new List<string>();
     public int total;
 
-    // Start is called before the first frame update
     void Start()
     {
-                GameObject gameDataGO = GameObject.Find("GameData");
+        GameObject gameDataGO = GameObject.Find("GameData");
+
 		if (gameDataGO == null)
+        {
 			SceneManager.LoadScene("TitleScene");
-		else
+        }
+        else
 		{
 			gameData = gameDataGO.GetComponent<GameData>();
         }
 
-        foreach(var learnt in gameData.constForChallenge){
-            Debug.Log("in start challengeConst const:" + learnt.Key);
+        foreach(var learnt in gameData.ConstLearnt){
+            //Debug.Log("in start challengeConst const:" + learnt.Key);
+
             if(learnt.Value == true){
                 constellations.Add(learnt.Key);
             }
@@ -44,7 +47,6 @@ public class ChallengeConst : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update(){
         if(constellations.Count == 0){
             endChallenge();
@@ -56,22 +58,28 @@ public class ChallengeConst : MonoBehaviour
     }
 
     public void startChallenge(){
-        Debug.Log("here im in");
-        if(constellations.Count != 0){
-            Debug.Log("in challConst startChall");
+        //Debug.Log("here im in");
 
-        
+        if(constellations.Count != 0){
+            //Debug.Log("in challConst startChall");
+                    
             string cons = constellations[0];
 
             foreach (Transform child in constellationsMenu.transform){
-                Debug.Log(child.name);
+                //Debug.Log(child.name);
+
                 if(child.name == cons){
                     child.gameObject.SetActive(true);
+
+                    resetConstellation(child);
+
+                    /*
                     foreach (Transform link in child){
                         if (link.gameObject.tag == "Link"){
                             link.gameObject.SetActive(false);
                         }
                     }
+                    */
                 }
                 else if (child.name == "NomConstellation")
                 {
@@ -88,6 +96,7 @@ public class ChallengeConst : MonoBehaviour
                 }
             }
         }
+
         startButton.SetActive(false);
 
     }
@@ -96,26 +105,34 @@ public class ChallengeConst : MonoBehaviour
         // if(constellations.Count == 0){
         //     return;
         // }
+
         string name = constellations[0];
-        Debug.Log("name of prev const: " + name);
         solved.Add(name);
         constellations.Remove(name);
 
-            if(constellations.Count != 0){
-            Debug.Log("in nextConstell");
+        //Debug.Log("name of prev const: " + name);
 
-        
+        if (constellations.Count != 0){
+            //Debug.Log("in nextConstell");
+
             string cons = constellations[0];
 
             foreach (Transform child in constellationsMenu.transform){
-                Debug.Log(child.name);
+                //Debug.Log(child.name);
+
                 if(child.name == cons){
                     child.gameObject.SetActive(true);
+
+                    resetConstellation(child);
+
+                    /*
                     foreach (Transform link in child){
                         if (link.gameObject.tag == "Link"){
+                            link.GetComponent<LineRenderer>().material.color = Color.white;
                             link.gameObject.SetActive(false);
                         }
                     }
+                    */
                 }
                 else if (child.name == "NomConstellation")
                 {
@@ -132,9 +149,22 @@ public class ChallengeConst : MonoBehaviour
                 }
             }
         }
-
-
-
     }
-    
+
+    void resetConstellation(Transform child)
+    {
+        foreach (Transform c in child)
+        {
+            if (c.gameObject.tag == "Link")
+            {
+                c.GetComponent<LineRenderer>().material.color = Color.white;
+                c.gameObject.SetActive(false);
+            }
+            if (c.gameObject.tag == "Star")
+            {
+                c.GetComponent<SpriteRenderer>().color = Color.white;
+            }
+        }
+    }
+
 }
