@@ -1,27 +1,29 @@
+using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Debug = UnityEngine.Debug;
+using Random = System.Random;
+
 
 public class ChallengeConst : MonoBehaviour
 {
-
     private GameData gameData;
 
     public GameObject constellationsMenu;
     public GameObject startButton;
     public GameObject menuNext;
-    public GameObject menuFin; // menu de fin 
+    public GameObject menuFin;
+    public GameObject menuRien; 
 
     public TMP_Text nomConstellation;
     public TMP_Text counter;
     public List<string> constellations = new List<string>();
     public List<string> solved = new List<string>();
-
-    public List<string> toReLearn = new List<string>();
 
     public int total;
 
@@ -38,16 +40,19 @@ public class ChallengeConst : MonoBehaviour
 			gameData = gameDataGO.GetComponent<GameData>();
         }
 
-        foreach(var learnt in gameData.ConstLearnt){
-            //Debug.Log("in start challengeConst const:" + learnt.Key);
-
-            if(learnt.Value == true){
-                constellations.Add(learnt.Key);
-            }
+        foreach(var constDispo in gameData.ConstForChallenge)
+        {
+            constellations.Add(constDispo);
         }
+
+        constellations = shuffleList(constellations);
 
         total = constellations.Count;
 
+        if (total == 0)
+        {
+            setMenuRien(true);
+        }
     }
 
     void Update(){
@@ -56,12 +61,13 @@ public class ChallengeConst : MonoBehaviour
         }
     }
 
+    public void setMenuRien(bool b)
+    {
+        menuRien.SetActive(b);
+    }
+
     public void endChallenge(){
-        menuFin.SetActive(true);
-        foreach(var v in toReLearn){
-            gameData.ConstTimeLearnt[v] = 0;
-            gameData.ConstForChallenge.Remove(v);
-        }
+        menuFin.SetActive(true);        
     }
 
     public void startChallenge(){
@@ -174,4 +180,11 @@ public class ChallengeConst : MonoBehaviour
         }
     }
 
+    List<string> shuffleList(List<string> values)
+    {
+        Random rand = new Random();
+        List<string> shuffled = values.OrderBy(_ => rand.Next()).ToList();
+
+        return shuffled;
+    }
 }
