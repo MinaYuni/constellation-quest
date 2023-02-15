@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 public class ShowLink : MonoBehaviour
 {
     private Scene scene;
+    private GameData gameData;
     public Transform constellation; // la cosntellation 
 
     Color colorStarSelected = Color.red; // rouge si sélectionné 
@@ -25,13 +26,26 @@ public class ShowLink : MonoBehaviour
     Transform selectedStar1; // première étoile sélectionnée
     Transform selectedStar2; // deuxième étoile sélectionnée
     bool isStarSelected;
-    float timeToWait = 5.0f;
-    float timeLeft = 0.0f;
+
+    float timeToWaitForHelp = 5.0f;
+    float timerHelp = 0.0f;
+
+    int nbAide = 0;
+    float nbMaxAide = 0;
+    bool aide = false;
 
     void Start()
     {
         scene = SceneManager.GetActiveScene();
         //Debug.Log("Scene actuelle : " + scene.name);
+
+        GameObject gameDataGO = GameObject.Find("GameData");
+        if (gameDataGO == null)
+            SceneManager.LoadScene("TitleScene");
+        else
+        {
+            gameData = gameDataGO.GetComponent<GameData>();
+        }
 
         // récupérer toutes les étoiles et liens de la constellation 
         foreach (Transform child in constellation)
@@ -48,6 +62,8 @@ public class ShowLink : MonoBehaviour
                 listIdLinks.Add((child, "Star"+linkConnections[0], "Star"+linkConnections[1]));
             }
         }
+
+        nbMaxAide = listObjectStars.Count / 3.0f;
 
         //Debug.Log(listIdStars[0].ToString());
         //Debug.Log(listIdLinks[0].ToString()); 
@@ -70,20 +86,29 @@ public class ShowLink : MonoBehaviour
             if (selectedStar1 == null && selectedStar2 == null)
             {
                 //Debug.Log("reset timer");
-                timeLeft = 0.0f;
+                timerHelp = 0.0f;
             }
-            else if (selectedStar1 != null || selectedStar2 == null)
+            else if (selectedStar1 != null && selectedStar2 == null)
             {
-                timeLeft += Time.deltaTime;
+                timerHelp += Time.deltaTime;
             }
-            else if (selectedStar1 == null || selectedStar2 != null)
+            else if (selectedStar1 == null && selectedStar2 != null)
             {
-                timeLeft += Time.deltaTime;
+                timerHelp += Time.deltaTime;
             }
 
             //Debug.Log(timeLeft.ToString());
 
-            activateAdaptativeHelp();         
+            activateAdaptativeHelp();
+
+            //Debug.Log(nbAide);
+
+            // retirer de la liste des challenges si on a dépassé le nombre d'aide seuil pour la constellation concernée 
+            if (nbAide > nbMaxAide)
+            {
+                gameData.ConstTimeLearnt[constellation.name] = 0;
+                gameData.ConstForChallenge.Remove(constellation.name);
+            }
         }
         else
         {
@@ -131,12 +156,12 @@ public class ShowLink : MonoBehaviour
                     if (star.name == selectedStar1.name)
                     {
                         selectedStar1 = null;
-                        timeLeft = 0.0f;
+                        timerHelp = 0.0f;
                     }
                     else if (star.name == selectedStar2.name)
                     {
                         selectedStar2 = null;
-                        timeLeft = 0.0f;
+                        timerHelp = 0.0f;
                     }
                 }
                 else if (selectedStar1 != null && selectedStar2 == null)
@@ -144,7 +169,7 @@ public class ShowLink : MonoBehaviour
                     if (star.name == selectedStar1.name)
                     {
                         selectedStar1 = null;
-                        timeLeft = 0.0f;
+                        timerHelp = 0.0f;
                     }
                 }
                 else if (selectedStar1 == null && selectedStar2 != null)
@@ -152,7 +177,7 @@ public class ShowLink : MonoBehaviour
                     if (star.name == selectedStar2.name)
                     {
                         selectedStar2 = null;
-                        timeLeft = 0.0f;
+                        timerHelp = 0.0f;
                     }
                 }
             }
@@ -251,8 +276,10 @@ public class ShowLink : MonoBehaviour
 
     void activateAdaptativeHelp()
     {
-        if (timeLeft >= timeToWait)
+        if (timerHelp >= timeToWaitForHelp)
         {
+            aide = true;
+
             if (selectedStar1 != null && selectedStar2 == null)
             {
                 foreach ((Transform, string, string) link in listIdLinks)
@@ -287,6 +314,12 @@ public class ShowLink : MonoBehaviour
                     link.Item1.gameObject.SetActive(false);
                     link.Item1.GetComponent<LineRenderer>().material.color = Color.white;
                 }
+            }
+
+            if (aide)
+            {
+                nbAide++;
+                aide = false;
             }
         }
     }
