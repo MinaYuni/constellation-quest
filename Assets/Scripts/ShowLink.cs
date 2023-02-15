@@ -27,7 +27,7 @@ public class ShowLink : MonoBehaviour
     Transform selectedStar2; // deuxième étoile sélectionnée
     bool isStarSelected;
 
-    float timeToWaitForHelp = 5.0f;
+    float timeToWaitForHelp = 3.0f;
     float timerHelp = 0.0f;
 
     int nbAide = 0;

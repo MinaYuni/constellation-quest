@@ -58,6 +58,7 @@ public class GameData : MonoBehaviour {
     };
 
     private static float tpsSelection = 0.5f; // temps pour qu'une étoile soit sélectionnée si le curseur est dessus 
+    private static float cste = 5.0f; 
     public int currLevel;
     // public List<string> lastLevelUnlocked = level1;
 
@@ -65,18 +66,17 @@ public class GameData : MonoBehaviour {
     public Dictionary<string, int> ConstTimeLearnt = new Dictionary<string, int>();
 
     // timeLimit = (nbLiens * tpsSelection * 3) + niveau 
-    // 3 car un lien est composé de 2 étoiles à sélectionner + le parcours entre les 2 
     public Dictionary<string, float> ConstTimeLimit = new Dictionary<string, float>() {
-        { "Equuleus", (2.0f * tpsSelection * 3.0f) + 1.0f }, 
-        { "Cassiopeia", (4.0f * tpsSelection * 3.0f) + 1.0f },
-        { "Libra", (6.0f * tpsSelection * 3.0f) + 2.0f }, 
-        { "Cygnus", (8.0f * tpsSelection * 3.0f) + 2.0f },
-        { "Scorpio", (11.0f * tpsSelection * 3.0f) + 3.0f }, 
-        { "Pisces", (17.0f * tpsSelection * 3.0f) + 3.0f },
-        { "Draco", (15.0f * tpsSelection * 3.0f) + 4.0f }, 
-        { "Andromeda", (15.0f * tpsSelection * 3.0f) + 4.0f },
-        { "Pavo", (12.0f * tpsSelection * 3.0f) + 5.0f }, 
-        { "Phoenix", (13.0f * tpsSelection * 3.0f) + 5.0f }
+        { "Equuleus", (2.0f * tpsSelection * cste) + 1.0f }, 
+        { "Cassiopeia", (4.0f * tpsSelection * cste) + 1.0f },
+        { "Libra", (6.0f * tpsSelection * cste) + 2.0f }, 
+        { "Cygnus", (8.0f * tpsSelection * cste) + 2.0f },
+        { "Scorpio", (11.0f * tpsSelection * cste) + 3.0f }, 
+        { "Pisces", (17.0f * tpsSelection * cste) + 3.0f },
+        { "Draco", (15.0f * tpsSelection * cste) + 4.0f }, 
+        { "Andromeda", (15.0f * tpsSelection * cste) + 4.0f },
+        { "Pavo", (12.0f * tpsSelection * cste) + 5.0f }, 
+        { "Phoenix", (13.0f * tpsSelection * cste) + 5.0f }
     };
 
     public List<string> ConstForChallenge = new List<string>();

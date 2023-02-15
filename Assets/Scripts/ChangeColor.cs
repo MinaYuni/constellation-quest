@@ -30,7 +30,7 @@ public class ChangeColor : MonoBehaviour
 
     private float xStar;
     private float yStar;
-    private float radiusStar = 50;
+    //private float radiusStar = 50;
 
     bool isHovering = false;
     bool isLinked = false;

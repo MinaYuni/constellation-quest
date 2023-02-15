@@ -152,10 +152,10 @@ public class ChallengeConst : MonoBehaviour
                     child.gameObject.SetActive(true);
                     nomConstellation.GetComponent<TextMeshProUGUI>().text = cons;
                 }
-                else if (child.name == "counter")
+                else if (child.name == "Counter")
                 {
                     child.gameObject.SetActive(true);
-                    counter.GetComponent<TextMeshProUGUI>().text = solved.Count + "/" + total;
+                    counter.GetComponent<TextMeshProUGUI>().text = "Constellation : " + solved.Count + " / " + total;
                 }
                 else{
                     child.gameObject.SetActive(false);
