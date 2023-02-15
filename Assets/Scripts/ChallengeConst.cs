@@ -60,7 +60,7 @@ public class ChallengeConst : MonoBehaviour
         menuFin.SetActive(true);
         foreach(var v in toReLearn){
             gameData.ConstTimeLearnt[v] = 0;
-            gameData.constForChallenge.Remove(v);
+            gameData.ConstForChallenge.Remove(v);
         }
     }
 

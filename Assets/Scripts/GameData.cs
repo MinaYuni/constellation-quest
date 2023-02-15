@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameData : MonoBehaviour {
@@ -60,7 +61,7 @@ public class GameData : MonoBehaviour {
     public Dictionary<string, float> ConstTimeLimit = new Dictionary<string, float>();
     public Dictionary<string, int> ConstTimeLearnt = new Dictionary<string, int>();
 
-    public List<string> constForChallenge = new List<string>();
+    public List<string> ConstForChallenge = new List<string>();
 
     public void initConstLearnt(List<string> level){
         foreach (var item in level){
@@ -76,7 +77,7 @@ public class GameData : MonoBehaviour {
 
     public void initConstTimeLimit(List<string> level){
         foreach (var item in level){
-            ConstTimeLimit.Add(item, 60.0);
+            ConstTimeLimit.Add(item, 60.0f);
         }
     }
 
@@ -110,16 +111,18 @@ public class GameData : MonoBehaviour {
         // }
     }
 
-    void Update(){
-
-        foreach(var v in ConstLearnt){
-            if(!v in constForChallenge){
-                if(ConstTimeLearnt[v] >= 2){
-                    constForChallenge.Add(v);
+    void Update()
+    {
+        foreach(var v in ConstLearnt)
+        {
+            if(!ConstForChallenge.Contains(v.Key))
+            {
+                if(ConstTimeLearnt[v.Key] >= 2)
+                {
+                    ConstForChallenge.Add(v.Key);
                 }
             }
         }
-
     }
 
     // initConstLearnt(level1);
