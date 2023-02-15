@@ -35,7 +35,7 @@ public class ChangeColor : MonoBehaviour
     bool isHovering = false;
     bool isLinked = false;
 
-    float timeToWait = 1.0f;
+    float timeToWait = 0.5f; // changer à 1 seconde si utilisation oculomètre (ne pas oublier de changertpsSelection dans GameData )
     float timeLeft = 1000.0f;
 
     Color colorStarSelected = Color.red; // rouge si sélectionné 
