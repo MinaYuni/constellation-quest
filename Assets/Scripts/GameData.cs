@@ -60,8 +60,14 @@ public class GameData : MonoBehaviour {
     // public List<string> lastLevelUnlocked = level1;
 
     public Dictionary<string, bool> ConstLearnt = new Dictionary<string, bool>();
-    public Dictionary<string, float> ConstTimeLimit = new Dictionary<string, float>();
     public Dictionary<string, int> ConstTimeLearnt = new Dictionary<string, int>();
+    public Dictionary<string, float> ConstTimeLimit = new Dictionary<string, float>() {
+        { "Equuleus", 7.0f }, { "Cassiopeia", 7.0f },
+        { "Libra", 7.0f }, { "Cygnus", 7.0f },
+        { "Scorpio", 7.0f }, { "Pisces", 7.0f },
+        { "Draco", 7.0f }, { "Andromeda", 7.0f },
+        { "Pavo", 7.0f }, { "Phoenix", 7.0f }
+    };
 
     public List<string> ConstForChallenge = new List<string>();
 
@@ -97,11 +103,11 @@ public class GameData : MonoBehaviour {
         initConstTimeLearnt(level4);
         initConstTimeLearnt(level5);
 
-        initConstTimeLimit(level1);
-        initConstTimeLimit(level2);
-        initConstTimeLimit(level3);
-        initConstTimeLimit(level4);
-        initConstTimeLimit(level5);
+        //initConstTimeLimit(level1);
+        //initConstTimeLimit(level2);
+        //initConstTimeLimit(level3);
+        //initConstTimeLimit(level4);
+        //initConstTimeLimit(level5);
 
         levels.Add(level1);
         levels.Add(level2);
