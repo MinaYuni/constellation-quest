@@ -20,20 +20,37 @@ public class GameData : MonoBehaviour {
 
     public List<List<string>> levels = new List<List<string>>();
 
+    // public List<string> level1 = new List<string>(){
+    //     "Equuleus", "Aries", "Cassiopeia", "LittleDipper", "BigDipper"
+    // };
+    // public List<string> level2 = new List<string>(){
+    //     "Libra", "Cancer", "Leo", "SerpensCaput", "Cygnus", "CanisMajor"
+    // };
+    // public List<string> level3 = new List<string>(){
+    //     "Capricorn", "Perseus", "Taurus", "Scorpio", "Pisces"
+    // };
+    // public List<string> level4 = new List<string>(){
+    //     "Aquarius", "Sagittarius", "Draco", "Andromeda", "Gemini"
+    // };
+    // public List<string> level5 = new List<string>(){
+    //     "Pavo", "Virgo", "Phoenix", "Orion"
+    // };
+
+    
     public List<string> level1 = new List<string>(){
-        "Equuleus", "Aries", "Cassiopeia", "LittleDipper", "BigDipper"
+        "Equuleus", "Cassiopeia"
     };
     public List<string> level2 = new List<string>(){
-        "Libra", "Cancer", "Leo", "SerpensCaput", "Cygnus", "CanisMajor"
+        "Libra", "Cygnus"
     };
     public List<string> level3 = new List<string>(){
-        "Capricorn", "Perseus", "Taurus", "Scorpio", "Pisces"
+        "Scorpio", "Pisces"
     };
     public List<string> level4 = new List<string>(){
-        "Aquarius", "Sagittarius", "Draco", "Andromeda", "Gemini"
+        "Draco", "Andromeda"
     };
     public List<string> level5 = new List<string>(){
-        "Pavo", "Virgo", "Phoenix", "Orion"
+        "Pavo", "Phoenix"
     };
 
     public int currLevel;
