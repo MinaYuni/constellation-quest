@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 
 public class TracerManager : MonoBehaviour
 {
-
     private GameData gameData;
     public Transform constellation; // la constellation 
     public GameObject menuFin; // menu de fin 
@@ -20,11 +19,8 @@ public class TracerManager : MonoBehaviour
     Color colorStarSelected = Color.red; // rouge si s�lectionn� 
     Color colorStarLinked = Color.yellow; // jaune si li� 
 
-
-    // Start is called before the first frame update
     void Start()
     {
-
         GameObject gameDataGO = GameObject.Find("GameData");
 		if (gameDataGO == null)
 			SceneManager.LoadScene("TitleScene");
@@ -44,9 +40,10 @@ public class TracerManager : MonoBehaviour
         //nomConstellation.GetComponent<TextMeshProUGUI>().text = constellation.name; 
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //Debug.Log(constellation.name + " : " + gameData.ConstTimeLearnt[constellation.name]);
+
         allLinksDisplayed = checkAllLinkDisplayed();
 
         if (allLinksDisplayed)
@@ -55,6 +52,29 @@ public class TracerManager : MonoBehaviour
             constellation.gameObject.SetActive(false);
             menuFin.SetActive(true);
             textMenuFin.GetComponent<TextMeshProUGUI>().text = "Bravo !\nVous avez réussi à tracer la constellation " + constellation.name + " !!!";
+
+            gameData.ConstLearnt[constellation.name] = true;
+            gameData.ConstTimeLearnt[constellation.name] ++;
+
+            // si pas déja dans la liste des challenges
+            if (!gameData.ConstForChallenge.Contains(constellation.name))
+            {
+                // si déjà apprise 
+                if (gameData.ConstLearnt[constellation.name])
+                {
+                    // si (ré)appris 2 fois ou plus 
+                    if (gameData.ConstTimeLearnt[constellation.name] >= 2)
+                    {
+                        gameData.ConstForChallenge.Add(constellation.name);
+                    }
+                }
+                else
+                {
+                    gameData.ConstForChallenge.Add(constellation.name);
+                }
+            }
+
+            unlockNextLevel();
         }
     }
 
@@ -72,12 +92,6 @@ public class TracerManager : MonoBehaviour
 
         if (cpt == listObjectLinks.Count)
         {
-            gameData.ConstLearnt[constellation.name] = true;
-            gameData.ConstForChallenge.Add(constellation.name);
-            gameData.ConstTimeLearnt[constellation.name]++;
-            // Debug.Log(constellation.name + " " + gameData.ConstLearnt[constellation.name]);
-            unlockNextLevel();
-            
             return true;
         }
 

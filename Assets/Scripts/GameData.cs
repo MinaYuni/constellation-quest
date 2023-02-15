@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class GameData : MonoBehaviour {
 
@@ -77,7 +79,7 @@ public class GameData : MonoBehaviour {
 
     public void initConstTimeLimit(List<string> level){
         foreach (var item in level){
-            ConstTimeLimit.Add(item, 60.0f);
+            ConstTimeLimit.Add(item, 30.0f);
         }
     }
 
@@ -95,6 +97,12 @@ public class GameData : MonoBehaviour {
         initConstTimeLearnt(level4);
         initConstTimeLearnt(level5);
 
+        initConstTimeLimit(level1);
+        initConstTimeLimit(level2);
+        initConstTimeLimit(level3);
+        initConstTimeLimit(level4);
+        initConstTimeLimit(level5);
+
         levels.Add(level1);
         levels.Add(level2);
         levels.Add(level3);
@@ -104,6 +112,14 @@ public class GameData : MonoBehaviour {
         currLevel = 0;
         ConstLearnt["Equuleus"] = true;
         ConstLearnt["Cassiopeia"] = true;
+
+        foreach (var v in ConstLearnt)
+        {
+            if (v.Value)
+            {
+                ConstForChallenge.Add(v.Key);
+            }            
+        }
 
         // Debug.Log("in gameData start levels foreach length");
         // foreach(var v in levels){
@@ -116,8 +132,8 @@ public class GameData : MonoBehaviour {
         foreach(var v in ConstLearnt)
         {
             if(!ConstForChallenge.Contains(v.Key))
-            {
-                if(ConstTimeLearnt[v.Key] >= 2)
+            {                
+                if (ConstTimeLearnt[v.Key] >= 2)
                 {
                     ConstForChallenge.Add(v.Key);
                 }
