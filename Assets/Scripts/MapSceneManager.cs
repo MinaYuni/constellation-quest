@@ -4,10 +4,10 @@ using UnityEngine;
 using TMPro;
 using System.Diagnostics;
 using Debug = UnityEngine.Debug;
-using System.Security.Cryptography;
 
 public class MapSceneManager : MonoBehaviour
 {
+    public GameObject buttonRetourMap; 
     public GameObject MapMenu;
     public GameObject LearnMenu;
     public GameObject menuFin;
@@ -34,7 +34,12 @@ public class MapSceneManager : MonoBehaviour
     public void setStateLearnMenu(bool b)
     {
         //Debug.Log("called set learn menu");
-        LearnMenu.SetActive(b);
+        LearnMenu.SetActive(b);        
+    }
+
+    public void setBouttonRetourMap(bool b)
+    {
+        buttonRetourMap.SetActive(b);
     }
 
     public void setStateLearn(GameObject constel){
