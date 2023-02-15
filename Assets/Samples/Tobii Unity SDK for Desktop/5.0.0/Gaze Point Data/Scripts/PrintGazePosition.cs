@@ -4,6 +4,7 @@
 
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace Tobii.Gaming.Examples.GazePointData
 {
@@ -15,18 +16,18 @@ namespace Tobii.Gaming.Examples.GazePointData
 	/// </remarks>
 	public class PrintGazePosition : MonoBehaviour
 	{
-		public Text xCoord;
-		public Text yCoord;
+		public TMP_Text xCoord;
+		public TMP_Text yCoord;
 		public GameObject GazePoint;
 
 		private float _pauseTimer;
-		private Outline _xOutline;
-		private Outline _yOutline;
+		//private Outline _xOutline;
+		//private Outline _yOutline;
 
 		void Start()
 		{
-			_xOutline = xCoord.GetComponent<Outline>();
-			_yOutline = yCoord.GetComponent<Outline>();
+			//_xOutline = xCoord.GetComponent<Outline>();
+			//_yOutline = yCoord.GetComponent<Outline>();
 		}
 
 		void Update()
@@ -38,8 +39,8 @@ namespace Tobii.Gaming.Examples.GazePointData
 			}
 
 			GazePoint.SetActive(false);
-			_xOutline.enabled = false;
-			_yOutline.enabled = false;
+			//_xOutline.enabled = false;
+			//_yOutline.enabled = false;
 
 			GazePoint gazePoint = TobiiAPI.GetGazePoint();
 			if (gazePoint.IsValid)
@@ -59,8 +60,8 @@ namespace Tobii.Gaming.Examples.GazePointData
 				                                    GetComponentInParent<Canvas>().scaleFactor;
 				yCoord.color = xCoord.color = new Color(0 / 255f, 190 / 255f, 255 / 255f);
 				GazePoint.SetActive(true);
-				_xOutline.enabled = true;
-				_yOutline.enabled = true;
+				//_xOutline.enabled = true;
+				//_yOutline.enabled = true;
 			}
 		}
 	}

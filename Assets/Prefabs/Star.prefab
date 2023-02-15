@@ -114,5 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 949ac611850601f4e916654d72646e01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circle: {fileID: 4208995232415271843}
+  starSprite: {fileID: 4208995232415271843}
+  star: {fileID: 768816649001328461}
+  xCoord: {fileID: 0}
+  yCoord: {fileID: 0}
   timeToWait: 1
