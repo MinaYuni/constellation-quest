@@ -427,7 +427,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   constellation: {fileID: 301859196}
   menuFin: {fileID: 544152056}
-  nomConstellation: {fileID: 644262900}
   textMenuFin: {fileID: 1061389427}
 --- !u!114 &301859198
 MonoBehaviour:
@@ -563,7 +562,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &474098858
 RectTransform:
   m_ObjectHideFlags: 0
@@ -603,7 +602,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   constellation: {fileID: 474098858}
   menuFin: {fileID: 544152056}
-  nomConstellation: {fileID: 644262900}
   textMenuFin: {fileID: 1061389427}
 --- !u!114 &474098860
 MonoBehaviour:
@@ -828,11 +826,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2550310044648515715, guid: 8c115cdfe1b69404c9393f84fcd56161, type: 3}
   m_PrefabInstance: {fileID: 505835601}
   m_PrefabAsset: {fileID: 0}
---- !u!212 &505835604 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 4208995232415271843, guid: 8c115cdfe1b69404c9393f84fcd56161, type: 3}
-  m_PrefabInstance: {fileID: 505835601}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &505835605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -845,7 +838,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 949ac611850601f4e916654d72646e01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circle: {fileID: 505835604}
+  starSprite: {fileID: 0}
+  star: {fileID: 0}
+  canvas: {fileID: 0}
+  gazePoint: {fileID: 0}
   timeToWait: 1
 --- !u!1 &512098585
 GameObject:
@@ -1234,11 +1230,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2550310044648515715, guid: 8c115cdfe1b69404c9393f84fcd56161, type: 3}
   m_PrefabInstance: {fileID: 639959636}
   m_PrefabAsset: {fileID: 0}
---- !u!212 &639959639 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 4208995232415271843, guid: 8c115cdfe1b69404c9393f84fcd56161, type: 3}
-  m_PrefabInstance: {fileID: 639959636}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &639959640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1251,7 +1242,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 949ac611850601f4e916654d72646e01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circle: {fileID: 639959639}
+  starSprite: {fileID: 0}
+  star: {fileID: 0}
+  canvas: {fileID: 0}
+  gazePoint: {fileID: 0}
   timeToWait: 1
 --- !u!1 &644262898
 GameObject:
@@ -2041,11 +2035,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2550310044648515715, guid: 8c115cdfe1b69404c9393f84fcd56161, type: 3}
   m_PrefabInstance: {fileID: 944190692}
   m_PrefabAsset: {fileID: 0}
---- !u!212 &944190695 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 4208995232415271843, guid: 8c115cdfe1b69404c9393f84fcd56161, type: 3}
-  m_PrefabInstance: {fileID: 944190692}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &944190696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2058,7 +2047,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 949ac611850601f4e916654d72646e01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circle: {fileID: 944190695}
+  starSprite: {fileID: 0}
+  star: {fileID: 0}
+  canvas: {fileID: 0}
+  gazePoint: {fileID: 0}
   timeToWait: 1
 --- !u!1 &948392530
 GameObject:
@@ -2211,11 +2203,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2550310044648515715, guid: 8c115cdfe1b69404c9393f84fcd56161, type: 3}
   m_PrefabInstance: {fileID: 969698738}
   m_PrefabAsset: {fileID: 0}
---- !u!212 &969698741 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 4208995232415271843, guid: 8c115cdfe1b69404c9393f84fcd56161, type: 3}
-  m_PrefabInstance: {fileID: 969698738}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &969698742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2228,7 +2215,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 949ac611850601f4e916654d72646e01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circle: {fileID: 969698741}
+  starSprite: {fileID: 0}
+  star: {fileID: 0}
+  canvas: {fileID: 0}
+  gazePoint: {fileID: 0}
   timeToWait: 1
 --- !u!1001 &1016844349
 PrefabInstance:
@@ -2668,11 +2658,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2550310044648515715, guid: 8c115cdfe1b69404c9393f84fcd56161, type: 3}
   m_PrefabInstance: {fileID: 1146958997}
   m_PrefabAsset: {fileID: 0}
---- !u!212 &1146959000 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 4208995232415271843, guid: 8c115cdfe1b69404c9393f84fcd56161, type: 3}
-  m_PrefabInstance: {fileID: 1146958997}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1146959001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2685,7 +2670,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 949ac611850601f4e916654d72646e01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circle: {fileID: 1146959000}
+  starSprite: {fileID: 0}
+  star: {fileID: 0}
+  canvas: {fileID: 0}
+  gazePoint: {fileID: 0}
   timeToWait: 1
 --- !u!1001 &1165379655
 PrefabInstance:
@@ -2906,6 +2894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11be685f318bb344803a12c59311fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  link: {fileID: 0}
 --- !u!1 &1488774742
 GameObject:
   m_ObjectHideFlags: 0
