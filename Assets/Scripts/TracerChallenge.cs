@@ -11,9 +11,9 @@ public class TracerChallenge : MonoBehaviour
 
     private GameData gameData;
     public Transform constellation; // la constellation 
-    public GameObject menuFin; // menu de fin 
+    public GameObject menuNext; // menu de fin 
     //public TMP_Text nomConstellation;
-    public TMP_Text textMenuFin;
+    public TMP_Text textmenuNext;
 
     List<Transform> listObjectLinks = new List<Transform>(); // liste des liens qui composent la constellation 
     bool allLinksDisplayed = false; // si toutes les liens sont visibles �a veut dire que la constellation est finie 
@@ -53,8 +53,8 @@ public class TracerChallenge : MonoBehaviour
         {
             System.Threading.Thread.Sleep(500);
             constellation.gameObject.SetActive(false);
-            menuFin.SetActive(true);
-            textMenuFin.GetComponent<TextMeshProUGUI>().text = "Bravo !\nVous avez réussi à tracer la constellation " + constellation.name + " !!!";
+            menuNext.SetActive(true);
+            textmenuNext.GetComponent<TextMeshProUGUI>().text = "Bravo !\nVous avez réussi à tracer la constellation " + constellation.name + " !!!";
         }
     }
 

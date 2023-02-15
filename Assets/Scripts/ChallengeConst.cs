@@ -13,6 +13,11 @@ public class ChallengeConst : MonoBehaviour
 
     public GameObject constellationsMenu;
     public GameObject startButton;
+    public GameObject menuNext;
+    public GameObject menuFin; // menu de fin 
+
+    public TMP_Text nomConstellation;
+    public TMP_Text counter;
     public List<string> constellations = new List<string>();
     public List<string> solved = new List<string>();
     public int total;
@@ -41,7 +46,13 @@ public class ChallengeConst : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-        
+        if(constellations.Count == 0){
+            endChallenge();
+        }
+    }
+
+    public void endChallenge(){
+        menuFin.SetActive(true);
     }
 
     public void startChallenge(){
@@ -54,13 +65,23 @@ public class ChallengeConst : MonoBehaviour
 
             foreach (Transform child in constellationsMenu.transform){
                 Debug.Log(child.name);
-                if(child.name == cons || child.name == "NomConstellation"){
+                if(child.name == cons){
                     child.gameObject.SetActive(true);
                     foreach (Transform link in child){
                         if (link.gameObject.tag == "Link"){
                             link.gameObject.SetActive(false);
                         }
                     }
+                }
+                else if (child.name == "NomConstellation")
+                {
+                    child.gameObject.SetActive(true);
+                    nomConstellation.GetComponent<TextMeshProUGUI>().text = cons;
+                }
+                else if (child.name == "counter")
+                {
+                    child.gameObject.SetActive(true);
+                    counter.GetComponent<TextMeshProUGUI>().text =  "0/" + total;
                 }
                 else{
                     child.gameObject.SetActive(false);
@@ -72,9 +93,9 @@ public class ChallengeConst : MonoBehaviour
     }
 
     public void nextConstellation(){
-        if(constellations.Count != 0){
-            return;
-        }
+        // if(constellations.Count == 0){
+        //     return;
+        // }
         string name = constellations[0];
         Debug.Log("name of prev const: " + name);
         solved.Add(name);
@@ -88,13 +109,23 @@ public class ChallengeConst : MonoBehaviour
 
             foreach (Transform child in constellationsMenu.transform){
                 Debug.Log(child.name);
-                if(child.name == cons || child.name == "NomConstellation"){
+                if(child.name == cons){
                     child.gameObject.SetActive(true);
                     foreach (Transform link in child){
                         if (link.gameObject.tag == "Link"){
                             link.gameObject.SetActive(false);
                         }
                     }
+                }
+                else if (child.name == "NomConstellation")
+                {
+                    child.gameObject.SetActive(true);
+                    nomConstellation.GetComponent<TextMeshProUGUI>().text = cons;
+                }
+                else if (child.name == "counter")
+                {
+                    child.gameObject.SetActive(true);
+                    counter.GetComponent<TextMeshProUGUI>().text = solved.Count + "/" + total;
                 }
                 else{
                     child.gameObject.SetActive(false);
