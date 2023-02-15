@@ -33,7 +33,7 @@ public class ChallengeConst : MonoBehaviour
 			gameData = gameDataGO.GetComponent<GameData>();
         }
 
-        foreach(var learnt in gameData.ConstLearnt){
+        foreach(var learnt in gameData.constForChallenge){
             Debug.Log("in start challengeConst const:" + learnt.Key);
             if(learnt.Value == true){
                 constellations.Add(learnt.Key);

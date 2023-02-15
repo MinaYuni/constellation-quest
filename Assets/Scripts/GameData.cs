@@ -57,10 +57,26 @@ public class GameData : MonoBehaviour {
     // public List<string> lastLevelUnlocked = level1;
 
     public Dictionary<string, bool> ConstLearnt = new Dictionary<string, bool>();
+    public Dictionary<string, float> ConstTimeLimit = new Dictionary<string, float>();
+    public Dictionary<string, int> ConstTimeLearnt = new Dictionary<string, int>();
+
+    public List<string> constForChallenge = new List<string>();
 
     public void initConstLearnt(List<string> level){
         foreach (var item in level){
             ConstLearnt.Add(item, false);
+        }
+    }
+
+    public void initConstTimeLearnt(List<string> level){
+        foreach (var item in level){
+            ConstTimeLearnt.Add(item, 0);
+        }
+    }
+
+    public void initConstTimeLimit(List<string> level){
+        foreach (var item in level){
+            ConstTimeLimit.Add(item, 60.0);
         }
     }
 
@@ -71,6 +87,12 @@ public class GameData : MonoBehaviour {
         initConstLearnt(level3);
         initConstLearnt(level4);
         initConstLearnt(level5);
+
+        initConstTimeLearnt(level1);
+        initConstTimeLearnt(level2);
+        initConstTimeLearnt(level3);
+        initConstTimeLearnt(level4);
+        initConstTimeLearnt(level5);
 
         levels.Add(level1);
         levels.Add(level2);
@@ -86,6 +108,18 @@ public class GameData : MonoBehaviour {
         // foreach(var v in levels){
         //     Debug.Log(v.Count);
         // }
+    }
+
+    void Update(){
+
+        foreach(var v in ConstLearnt){
+            if(!v in constForChallenge){
+                if(ConstTimeLearnt[v] >= 2){
+                    constForChallenge.Add(v);
+                }
+            }
+        }
+
     }
 
     // initConstLearnt(level1);
