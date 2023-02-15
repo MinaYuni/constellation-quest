@@ -65,6 +65,7 @@ public class MapSceneManager : MonoBehaviour
             else
             {
                 child.gameObject.SetActive(false);
+                buttonRetourMap.SetActive(true);
             }
             
         }
