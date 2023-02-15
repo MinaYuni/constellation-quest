@@ -19,7 +19,6 @@ public class MapSceneManager : MonoBehaviour
         
     }
 
-
     void Update()
     {
         
@@ -97,29 +96,4 @@ public class MapSceneManager : MonoBehaviour
             }
         }
     }
-
-
-    // public void enableConst(string const){
-    //     LearnMenu.setActive(true);
-        // Transform[] allChildren = LearnMenu.GetComponentsInChildren<Transform>();
-        // foreach (Transform child in allChildren){
-        //     if(child.name == const){
-        //         child.gameObject.SetActive(true);
-        //     }
-        // }
-    // }
-
-    // public void stateLearnMenu(string const, bool b){
-    //     LearnMenu.SetActive(b);
-    //     // GameObject constellation = LearnMenu.transform.Find(const);
-    //     Transform[] allChildren = LearnMenu.GetComponentsInChildren<Transform>();
-    //     foreach (Transform child in allChildren){
-    //         if(child.name == const){
-    //             child.gameObject.SetActive(true);
-    //         }
-    //         // else{
-    //         //     child.gameObject.SetActive(false);
-    //         // }
-    //     }
-    // }
 }

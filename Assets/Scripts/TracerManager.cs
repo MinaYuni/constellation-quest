@@ -59,17 +59,14 @@ public class TracerManager : MonoBehaviour
             // si pas déja dans la liste des challenges
             if (!gameData.ConstForChallenge.Contains(constellation.name))
             {
-                // si déjà apprise 
-                if (gameData.ConstLearnt[constellation.name])
+                // si déjà apprise et au moins 2 fois
+                if (gameData.ConstLearnt[constellation.name] && gameData.ConstTimeLearnt[constellation.name] >= 2)
                 {
-                    // si (ré)appris 2 fois ou plus 
-                    if (gameData.ConstTimeLearnt[constellation.name] >= 2)
-                    {
-                        gameData.ConstForChallenge.Add(constellation.name);
-                    }
+                    gameData.ConstForChallenge.Add(constellation.name);
                 }
                 else
                 {
+                    gameData.ConstLearnt[constellation.name] = true;
                     gameData.ConstForChallenge.Add(constellation.name);
                 }
             }
@@ -102,23 +99,30 @@ public class TracerManager : MonoBehaviour
         int curr = gameData.currLevel;
         bool unlock = true;
 
-        // Debug.Log("curr : " +curr);
-        // Debug.Log("game data currLevel : " +gameData.currLevel);
-        // Debug.Log("gameData levels: " + gameData.levels);
-        // Debug.Log("gameData levels length: " + gameData.levels.Count);
+        //Debug.Log("curr : " + curr);
+        //Debug.Log("game data currLevel : " + gameData.currLevel);
+        //Debug.Log("gameData levels: " + gameData.levels);
+        //Debug.Log("gameData levels length: " + gameData.levels.Count);
 
-        List<string> levelToCheck = gameData.levels[curr];
+        if (curr < gameData.nbLevels)
+        {
+            List<string> levelToCheck = gameData.levels[curr];
 
-        foreach(var v in levelToCheck){
-            if(!gameData.ConstLearnt[v]){
-                unlock = false;
-                break;
+            foreach (var constellation in levelToCheck){
+                if (!gameData.ConstLearnt[constellation]){
+                    unlock = false;
+                    break;
+                }
             }
-        }
 
-        if(unlock){
-            gameData.levelsUnlocked["Level"+ curr+2] = true;
-            gameData.currLevel ++;
+            if (unlock)
+            {                
+                int nextLevel = curr + 2; 
+                gameData.levelsUnlocked["Level" + nextLevel] = true;
+                gameData.currLevel ++;
+
+                //Debug.Log("Level" + nextLevel;
+            }
         }
     }
 

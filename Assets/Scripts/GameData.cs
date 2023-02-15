@@ -39,6 +39,7 @@ public class GameData : MonoBehaviour {
     //     "Pavo", "Virgo", "Phoenix", "Orion"
     // };
 
+    public int nbLevels = 5;
     
     public List<string> level1 = new List<string>(){
         "Equuleus", "Cassiopeia"
@@ -62,11 +63,11 @@ public class GameData : MonoBehaviour {
     public Dictionary<string, bool> ConstLearnt = new Dictionary<string, bool>();
     public Dictionary<string, int> ConstTimeLearnt = new Dictionary<string, int>();
     public Dictionary<string, float> ConstTimeLimit = new Dictionary<string, float>() {
-        { "Equuleus", 7.0f }, { "Cassiopeia", 7.0f },
-        { "Libra", 7.0f }, { "Cygnus", 7.0f },
-        { "Scorpio", 7.0f }, { "Pisces", 7.0f },
-        { "Draco", 7.0f }, { "Andromeda", 7.0f },
-        { "Pavo", 7.0f }, { "Phoenix", 7.0f }
+        { "Equuleus", 7.0f }, { "Cassiopeia", 13.0f },
+        { "Libra", 20.0f }, { "Cygnus", 26.0f },
+        { "Scorpio", 36.0f }, { "Pisces", 54.0f },
+        { "Draco", 49.0f }, { "Andromeda", 49.0f },
+        { "Pavo", 41.0f }, { "Phoenix", 44.0f }
     };
 
     public List<string> ConstForChallenge = new List<string>();
@@ -116,8 +117,9 @@ public class GameData : MonoBehaviour {
         levels.Add(level5);
 
         currLevel = 0;
-        ConstLearnt["Equuleus"] = true;
-        ConstLearnt["Cassiopeia"] = true;
+
+        //ConstLearnt["Equuleus"] = true;
+        //ConstLearnt["Cassiopeia"] = true;
 
         foreach (var v in ConstLearnt)
         {
@@ -146,40 +148,4 @@ public class GameData : MonoBehaviour {
             }
         }
     }
-
-    // initConstLearnt(level1);
-    // initConstLearnt(level2);
-    // initConstLearnt(level3);
-    // initConstLearnt(level4);
-    // initConstLearnt(level5);
-
-
-    // private string[] level1 = {"Equuleus", "Aries", "Cassiopeia", "Little Dipper", "Big Dipper"};
-    // private string[] level2 = {"Libra", "Cancer", "Leo", "Serpens Caput", "Cygnus", "Canis Major"};
-    // private string[] level3 = {"Capricorn", "Perseus", "Taurus", "Scorpio", "Pisces"};
-    // private string[] level4 = {"Aquarius", "Sagittarius", "Draco", "Andromeda", "Gemini"};
-    // private string[] level5 = {"Pavo", "Virgo", "Phoenix", "Orion"};
-
-
-    // public List<List<string>> ConstPerLevel =  new List<List<string>>(){
-	// 	new List<string>(){"Equuleus", "Aries", "Cassiopeia", "Little Dipper", "Big Dipper"}
-	// };
-
-    // public Dictionary<int, List<string>> ConstPerLevel =  new Dictionary<int, List<string>>() {
-    //     {1, {"Equuleus", "Aries", "Cassiopeia", "Little Dipper", "Big Dipper"}},
-    //     {2, {"Libra", "Cancer", "Leo", "Serpens Caput", "Cygnus", "Canis Major"}}
-    // };
-
-    // public List<List<string>> ConstPerLevel =  new List<List<string>>(4);
-
-
-    // ConstPerLevel.Add(level1);
-        
-    //     new List<string> {"Equuleus", "Aries", "Cassiopeia", "Little Dipper", "Big Dipper"},
-    //     new List<string> {"Libra", "Cancer", "Leo", "Serpens Caput", "Cygnus", "Canis Major"},
-    //     new List<string> {"Capricorn", "Perseus", "Taurus", "Scorpio", "Pisces"},
-    //     new List<string> {"Aquarius", "Sagittarius", "Draco", "Andromeda", "Gemini"},
-    //     new List<string> {"Pavo", "Virgo", "Phoenix", "Orion"}
-    // };
-
 }
