@@ -20,6 +20,9 @@ public class ChallengeConst : MonoBehaviour
     public TMP_Text counter;
     public List<string> constellations = new List<string>();
     public List<string> solved = new List<string>();
+
+    public List<string> toReLearn = new List<string>();
+
     public int total;
 
     void Start()
@@ -55,6 +58,10 @@ public class ChallengeConst : MonoBehaviour
 
     public void endChallenge(){
         menuFin.SetActive(true);
+        foreach(var v in toReLearn){
+            gameData.ConstTimeLearnt[v] = 0;
+            gameData.constForChallenge.Remove(v);
+        }
     }
 
     public void startChallenge(){

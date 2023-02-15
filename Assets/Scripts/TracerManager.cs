@@ -73,6 +73,8 @@ public class TracerManager : MonoBehaviour
         if (cpt == listObjectLinks.Count)
         {
             gameData.ConstLearnt[constellation.name] = true;
+            gameData.constForChallenge.Add(constellation.name);
+            gameData.constTimeLearnt[constellation.name]++;
             // Debug.Log(constellation.name + " " + gameData.ConstLearnt[constellation.name]);
             unlockNextLevel();
             
