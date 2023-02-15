@@ -5,10 +5,11 @@ using System.IO;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 using Newtonsoft.Json;
-using System.Security.Cryptography;
+using UnityEngine.SceneManagement;
 
 public class ShowLink : MonoBehaviour
 {
+    private Scene scene;
     public Transform constellation; // la cosntellation 
 
     Color colorStarSelected = Color.red; // rouge si sélectionné 
@@ -23,9 +24,15 @@ public class ShowLink : MonoBehaviour
 
     Transform selectedStar1; // première étoile sélectionnée
     Transform selectedStar2; // deuxième étoile sélectionnée
+    bool isStarSelected;
+    float timeToWait = 5.0f;
+    float timeLeft = 0.0f;
 
     void Start()
     {
+        scene = SceneManager.GetActiveScene();
+        //Debug.Log("Scene actuelle : " + scene.name);
+
         // récupérer toutes les étoiles et liens de la constellation 
         foreach (Transform child in constellation)
         {
@@ -58,7 +65,30 @@ public class ShowLink : MonoBehaviour
     {
         selectStars();
 
-        activateHelpLinks();
+        if (scene.name == "Adaptatif")
+        {
+            if (selectedStar1 == null && selectedStar2 == null)
+            {
+                //Debug.Log("reset timer");
+                timeLeft = 0.0f;
+            }
+            else if (selectedStar1 != null || selectedStar2 == null)
+            {
+                timeLeft += Time.deltaTime;
+            }
+            else if (selectedStar1 == null || selectedStar2 != null)
+            {
+                timeLeft += Time.deltaTime;
+            }
+
+            //Debug.Log(timeLeft.ToString());
+
+            activateAdaptativeHelp();         
+        }
+        else
+        {
+            activateHelpLinks();
+        }        
 
         if (selectedStar1 != null && selectedStar2 != null)
         {
@@ -70,6 +100,7 @@ public class ShowLink : MonoBehaviour
     {
         foreach (Transform star in listObjectStars)
         {
+            // si l'étoile a été sélectionnée, alors mettre à jour selectedStar1 et selectedStar2
             if (star.GetComponent<SpriteRenderer>().color == colorStarSelected)
             {
                 if (selectedStar1 == null && selectedStar2 == null)
@@ -92,6 +123,7 @@ public class ShowLink : MonoBehaviour
                 }
             }
 
+            // si l'étoile n'a été pas sélectionnée ou elle est déjà liée, alors reset selectedStar1 et selectedStar2
             else if (star.GetComponent<SpriteRenderer>().color == Color.white || star.GetComponent<SpriteRenderer>().color == colorLinked)
             {
                 if (selectedStar1 != null && selectedStar2 != null)
@@ -99,10 +131,12 @@ public class ShowLink : MonoBehaviour
                     if (star.name == selectedStar1.name)
                     {
                         selectedStar1 = null;
+                        timeLeft = 0.0f;
                     }
                     else if (star.name == selectedStar2.name)
                     {
                         selectedStar2 = null;
+                        timeLeft = 0.0f;
                     }
                 }
                 else if (selectedStar1 != null && selectedStar2 == null)
@@ -110,6 +144,7 @@ public class ShowLink : MonoBehaviour
                     if (star.name == selectedStar1.name)
                     {
                         selectedStar1 = null;
+                        timeLeft = 0.0f;
                     }
                 }
                 else if (selectedStar1 == null && selectedStar2 != null)
@@ -117,6 +152,7 @@ public class ShowLink : MonoBehaviour
                     if (star.name == selectedStar2.name)
                     {
                         selectedStar2 = null;
+                        timeLeft = 0.0f;
                     }
                 }
             }
@@ -212,4 +248,47 @@ public class ShowLink : MonoBehaviour
             }
         }
     }
+
+    void activateAdaptativeHelp()
+    {
+        if (timeLeft >= timeToWait)
+        {
+            if (selectedStar1 != null && selectedStar2 == null)
+            {
+                foreach ((Transform, string, string) link in listIdLinks)
+                {
+                    if ((selectedStar1.name == link.Item2 || selectedStar1.name == link.Item3) && link.Item1.gameObject.activeInHierarchy == false)
+                    {
+                        link.Item1.GetComponent<LineRenderer>().material.color = colorHelpLinks;
+                        link.Item1.gameObject.SetActive(true);
+                    }
+                }
+            }
+
+            if (selectedStar1 == null && selectedStar2 != null)
+            {
+                foreach ((Transform, string, string) link in listIdLinks)
+                {
+                    if ((selectedStar2.name == link.Item2 || selectedStar2.name == link.Item3) && link.Item1.gameObject.activeInHierarchy == false)
+                    {
+                        link.Item1.GetComponent<LineRenderer>().material.color = colorHelpLinks;
+                        link.Item1.gameObject.SetActive(true);
+                    }
+                }
+            }
+        }            
+
+        if (selectedStar1 == null && selectedStar2 == null)
+        {
+            foreach ((Transform, string, string) link in listIdLinks)
+            {
+                if (link.Item1.gameObject.activeInHierarchy == true && link.Item1.GetComponent<LineRenderer>().material.color == colorHelpLinks)
+                {
+                    link.Item1.gameObject.SetActive(false);
+                    link.Item1.GetComponent<LineRenderer>().material.color = Color.white;
+                }
+            }
+        }
+    }
+
 }
