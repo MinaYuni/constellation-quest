@@ -12,7 +12,6 @@ public class TracerChallenge : MonoBehaviour
     private GameData gameData;
     public Transform constellation; // la constellation 
     public GameObject menuNext; // menu de fin 
-    //public TMP_Text nomConstellation;
     public TMP_Text textmenuNext;
 
     List<Transform> listObjectLinks = new List<Transform>(); // liste des liens qui composent la constellation 
@@ -20,11 +19,12 @@ public class TracerChallenge : MonoBehaviour
     Color colorStarSelected = Color.red; // rouge si s�lectionn� 
     Color colorStarLinked = Color.yellow; // jaune si li� 
 
+    float timerConst = 0.0f;
+    float constTimeMax = 0.0f;
+    //string toReLearn;
 
-    // Start is called before the first frame update
     void Start()
     {
-
         GameObject gameDataGO = GameObject.Find("GameData");
 		if (gameDataGO == null)
 			SceneManager.LoadScene("TitleScene");
@@ -41,12 +41,21 @@ public class TracerChallenge : MonoBehaviour
             }
         }
 
-        //nomConstellation.GetComponent<TextMeshProUGUI>().text = constellation.name; 
+        constTimeMax = gameData.ConstTimeLimit[constellation.name];
+        //Debug.Log(constTimeMax);
     }
 
-    // Update is called once per frame
     void Update()
     {
+        timerConst += Time.deltaTime;
+
+        // retirer de la liste des challenges si on a dépassé le temps max pour la constellation concernée 
+        if (timerConst >= constTimeMax)
+        {
+            gameData.ConstTimeLearnt[constellation.name] = 0;
+            gameData.ConstForChallenge.Remove(constellation.name);
+        }
+
         allLinksDisplayed = checkAllLinkDisplayed();
 
         if (allLinksDisplayed)
